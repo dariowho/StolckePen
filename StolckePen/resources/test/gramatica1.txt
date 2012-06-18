@@ -1,0 +1,43 @@
+[Gramática exemplo v1
+[Hugo Gonçalo Oliveira 2009
+
+> qqcoisa.txt
+
+[TOP ::= SN <&> SV
+[TOP ::= SV
+
+TOP ::= S <@> frase exacta
+TOP ::= QUALQUERCOISA <&> S
+TOP ::= S <&> QUALQUERCOISA
+TOP ::= QUALQUERCOISA <&> S <&> QUALQUERCOISA
+
+S ::= SV
+S ::= SN <&> SV
+
+SN ::= DET <&> N
+SN ::= PRON
+SN ::= ENUM_SN
+
+SV ::= V
+SV ::= V <&> SN
+
+DET ::= o
+DET ::= um
+
+N ::= cão
+N ::= livro
+N ::= gato
+N ::= rato
+
+PRON ::= eu
+
+V ::= li
+V ::= vi
+V ::= leu
+V ::= viu
+
+ENUM_SN ::= SN <&> CONJ <&> SN
+ENUM_SN ::= SN <&> , <&> ENUM_SN
+
+CONJ ::= e
+CONJ ::= ou
