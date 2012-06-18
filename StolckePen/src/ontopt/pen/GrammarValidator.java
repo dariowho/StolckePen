@@ -45,6 +45,9 @@ public class GrammarValidator
         if (root.intValue() > Grammar.PHRASE_LOWER_LIMIT)
         {
             List<Rule> rules = grammar.getAllRulesWithHead(root);
+            System.out.print(root + " ");
+            System.out.print(grammar.getDataType(root) + " ");
+        	System.out.println(rules.size());
             if (rules == null || rules.isEmpty())
             {
                 throw new GrammarException("Couldn't find rule for symbol: "
