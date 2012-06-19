@@ -103,7 +103,10 @@ public class TransitiveMatrix {
 			
 		return hash;
 	}
-	public double getTransitiveRelation(String lhs, String rhs){
+	public double getTransitiveLCRelation(String lhs, String rhs){
 		return probLCHash.get(lhs).get(rhs);
+	}
+	public double getTransitiveUnitRelation(String lhs, String rhs){
+		return probUnitHash.get(lhs).get(rhs);
 	}
 }
