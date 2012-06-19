@@ -387,7 +387,7 @@ public class EarleyParser
 					for (int i = 0; i < parses.size(); i++)
 					{
 						node = parses.get(i);
-//						outputter.print(node, true, false, 0);
+						//outputter.print(node, false, true, 0);
 						outputter.printPenn(node);
 					}
 //				}
