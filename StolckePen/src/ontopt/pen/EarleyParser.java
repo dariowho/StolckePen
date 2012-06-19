@@ -59,6 +59,8 @@ public class EarleyParser
 	{
 		grammar = new Grammar(grammarFile);
 		new GrammarValidator(grammar).validate();
+		
+		TransitiveMatrix rMatrix = TransitiveMatrix.getMatrix(grammar);
 		dummieRule = new PhraseRule(0., "", null, Grammar.PARSE_ROOT, grammar);
 		
 		stop = false;
@@ -366,6 +368,7 @@ public class EarleyParser
 
 		try
 		{
+			
 			EarleyParser parser = new EarleyParser(args[0]);
 			SemanticNode node;
 			Outputter outputter = new Outputter(System.out);

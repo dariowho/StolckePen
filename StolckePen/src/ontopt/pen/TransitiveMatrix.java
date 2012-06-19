@@ -1,6 +1,8 @@
 package ontopt.pen;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 import matrix.Matrix;
 
@@ -10,8 +12,10 @@ public class TransitiveMatrix {
 	private HashMap<String, HashMap<String, Double >> probLCHash;
 	private HashMap<String, HashMap<String, Double >> probUnitHash;
 
-	public static TransitiveMatrix getMatrix(ArrayList<String> nonTerminalList, Grammar grammar){
+	public static TransitiveMatrix getMatrix(Grammar grammar){
 		TransitiveMatrix rMatrix = new TransitiveMatrix();
+
+		List<String> nonTerminalList= new ArrayList(grammar.getNonterminals());
 		Matrix[] r=probabilisticTransitiveRelation(nonTerminalList, grammar);
 		
     	rMatrix.probTransLCMatrix = computeInverseIdMinusMatrix(r[0], nonTerminalList.size());
@@ -26,7 +30,7 @@ public class TransitiveMatrix {
 	 * Build matrix for left corner relations.
 	 */
 	
-	public static Matrix[] probabilisticTransitiveRelation(ArrayList<String> nonTerminals, Grammar grammar) {
+	public static Matrix[] probabilisticTransitiveRelation(List<String> nonTerminals, Grammar grammar) {
 		//P(X -->left Y) = Sum_{X --> Y mu} P(X --> Y)
 		//rules are of the form: HM<lhs, HM(rhs, probability)>
 		int nrNonTerminals = nonTerminals.size();
@@ -67,7 +71,7 @@ public class TransitiveMatrix {
 	/**
 	 * Turn matrix into hashmap. Also entries with value zero are removed. This speeds up parsing later on.
 	 */
-	public static HashMap<String, HashMap<String, Double>> matrixToHash(Matrix Matrix, ArrayList<String> nonterminal_symbols) {
+	public static HashMap<String, HashMap<String, Double>> matrixToHash(Matrix Matrix, List<String> nonterminal_symbols) {
 		HashMap<String, HashMap<String, Double>> hash = new HashMap<String, HashMap<String, Double>>();
 		HashMap<String, Double> temp_hash = new HashMap<String, Double>();
 		
