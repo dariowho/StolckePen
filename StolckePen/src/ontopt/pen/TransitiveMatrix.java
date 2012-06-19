@@ -1,33 +1,32 @@
 package ontopt.pen;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import matrix.Matrix;
 
 public class TransitiveMatrix {
-	private static ArrayList<String> nonTerminalList;
 	private Matrix probTransLCMatrix;
 	private Matrix probTransUnitMatrix;
-	protected static HashMap<String, HashMap<String, Double >> probLCHash;
-	protected static HashMap<String, HashMap<String, Double >> probUnitHash;
+	private HashMap<String, HashMap<String, Double >> probLCHash;
+	private HashMap<String, HashMap<String, Double >> probUnitHash;
 
-	public void getMatrix(ArrayList<String> nonTerminalList, Grammar grammar){
-		this.nonTerminalList=nonTerminalList;
+	public static TransitiveMatrix getMatrix(ArrayList<String> nonTerminalList, Grammar grammar){
+		TransitiveMatrix rMatrix = new TransitiveMatrix();
+		Matrix[] r=probabilisticTransitiveRelation(nonTerminalList, grammar);
 		
-		probabilisticTransitiveRelation(nonTerminalList, grammar);
-    	probTransLCMatrix = computeInverseIdMinusMatrix(probTransLCMatrix, nonTerminalList.size());
-    	probLCHash = matrixToHash(probTransLCMatrix, nonTerminalList);
+    	rMatrix.probTransLCMatrix = computeInverseIdMinusMatrix(r[0], nonTerminalList.size());
+    	rMatrix.probLCHash = matrixToHash(rMatrix.probTransLCMatrix, nonTerminalList);
 
 		
-    	probTransUnitMatrix = computeInverseIdMinusMatrix(probTransLCMatrix, nonTerminalList.size());
-    	probUnitHash = matrixToHash(probTransLCMatrix, nonTerminalList);
+    	rMatrix.probTransUnitMatrix = computeInverseIdMinusMatrix(r[1], nonTerminalList.size());
+    	rMatrix.probUnitHash = matrixToHash(rMatrix.probTransUnitMatrix, nonTerminalList);
+    	return rMatrix;
 	}
 	/**
 	 * Build matrix for left corner relations.
 	 */
 	
-	public void probabilisticTransitiveRelation(ArrayList<String> nonTerminals, Grammar grammar) {
+	public static Matrix[] probabilisticTransitiveRelation(ArrayList<String> nonTerminals, Grammar grammar) {
 		//P(X -->left Y) = Sum_{X --> Y mu} P(X --> Y)
 		//rules are of the form: HM<lhs, HM(rhs, probability)>
 		int nrNonTerminals = nonTerminals.size();
@@ -44,15 +43,16 @@ public class TransitiveMatrix {
 				}
 			}
 		}
-		
-		this.probTransLCMatrix = new Matrix(leftCornerProbabilities);
-		this.probTransUnitMatrix = new Matrix(UnitProbabilities);
+		Matrix[] r= new Matrix[2];
+		r[0]= new Matrix(leftCornerProbabilities);
+		r[1] = new Matrix(UnitProbabilities);
+		return r;
 	}
 
 	/**
 	 * Compute R_{L} = inverse(I - P_{L})
 	 */
-	public Matrix computeInverseIdMinusMatrix(Matrix probLCMatrix, int nrNonTerminals) {
+	public static Matrix computeInverseIdMinusMatrix(Matrix probLCMatrix, int nrNonTerminals) {
 		
 		double[][] matrixArray = new double[nrNonTerminals][nrNonTerminals];
 		for (int i=0; i< nrNonTerminals; i++) {
@@ -67,7 +67,7 @@ public class TransitiveMatrix {
 	/**
 	 * Turn matrix into hashmap. Also entries with value zero are removed. This speeds up parsing later on.
 	 */
-	public HashMap<String, HashMap<String, Double>> matrixToHash(Matrix Matrix, ArrayList<String> nonterminal_symbols) {
+	public static HashMap<String, HashMap<String, Double>> matrixToHash(Matrix Matrix, ArrayList<String> nonterminal_symbols) {
 		HashMap<String, HashMap<String, Double>> hash = new HashMap<String, HashMap<String, Double>>();
 		HashMap<String, Double> temp_hash = new HashMap<String, Double>();
 		
