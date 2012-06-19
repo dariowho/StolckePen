@@ -41,7 +41,6 @@ public class TransitiveMatrix {
 			String lhs = nonTerminals.get(i);
 			ArrayList<Rule> rules = grammar.getAllRulesWithHead(lhs);
 			for (Rule r : rules){
-				System.out.println(r.getLeftmost());
 				if ( nonTerminals.contains(r.getLeftmost())){//check if not terminal
 					leftCornerProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
 					if (r.size()==1){
@@ -81,9 +80,10 @@ public class TransitiveMatrix {
 		for (int rowIndex = 0; rowIndex<nonterminal_symbols.size(); rowIndex++) {
 			for (int columnIndex = 0; columnIndex<nonterminal_symbols.size(); columnIndex++) {
 				double prob = Matrix.get(rowIndex, columnIndex);
+				//System.out.println(Double.toString(prob));
 				if (prob >0.) {
 					temp_hash.put(nonterminal_symbols.get(columnIndex), prob);
-					System.out.println(nonterminal_symbols.get(rowIndex)+" -->  " + nonterminal_symbols.get(columnIndex)+" = " + Double.toString(prob));
+					//System.out.println(nonterminal_symbols.get(rowIndex)+" -->  " + nonterminal_symbols.get(columnIndex)+" = " + Double.toString(prob));
 				}
 			}
 			hash.put(nonterminal_symbols.get(rowIndex), temp_hash);
