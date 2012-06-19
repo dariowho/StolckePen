@@ -41,9 +41,12 @@ public class TransitiveMatrix {
 			String lhs = nonTerminals.get(i);
 			ArrayList<Rule> rules = grammar.getAllRulesWithHead(lhs);
 			for (Rule r : rules){
-				leftCornerProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
-				if (r.size()==1){
-					UnitProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
+				System.out.println(r.getLeftmost());
+				if ( nonTerminals.contains(r.getLeftmost())){//check if not terminal
+					leftCornerProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
+					if (r.size()==1){
+						UnitProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
+					}
 				}
 			}
 		}
