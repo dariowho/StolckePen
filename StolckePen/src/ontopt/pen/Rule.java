@@ -20,14 +20,14 @@ package ontopt.pen;
 public abstract class Rule
 {
 
-    public static final int DEFAULT_WEIGHT = 0;
+    public static final Double DEFAULT_WEIGHT = 0.;
 
     protected String annotation;
 
     /**
      * An Integer representing the rule weight
      */
-    protected Integer weight;
+    protected Double weight;
 
     /**
      * An Integer representing the phrase type of this rule. e.g. HEAD - B1, B2, ..., Bn
@@ -47,7 +47,7 @@ public abstract class Rule
      * @param grammar
      *            The grammar that contains this rule
      */
-    public Rule(Integer weight, String annotation, Integer head, Grammar grammar)
+    public Rule(Double weight, String annotation, Integer head, Grammar grammar)
     {
         this.weight = weight;
         this.annotation = annotation;
@@ -102,7 +102,7 @@ public abstract class Rule
      */
     public abstract boolean equals(Rule pRule);
 
-    public Integer getWeight()
+    public Double getWeight()
     {
         return weight;
     }

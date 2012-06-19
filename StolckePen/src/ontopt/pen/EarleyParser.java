@@ -59,7 +59,7 @@ public class EarleyParser
 	{
 		grammar = new Grammar(grammarFile);
 		new GrammarValidator(grammar).validate();
-		dummieRule = new PhraseRule(0, "", null, Grammar.PARSE_ROOT, grammar);
+		dummieRule = new PhraseRule(0., "", null, Grammar.PARSE_ROOT, grammar);
 		
 		stop = false;
 	}
@@ -387,8 +387,8 @@ public class EarleyParser
 					for (int i = 0; i < parses.size(); i++)
 					{
 						node = parses.get(i);
-						//outputter.print(node, false, true, 0);
-						outputter.printPenn(node);
+						outputter.print(node, false, true, 0);
+						//outputter.printPenn(node);
 					}
 //				}
 

@@ -361,7 +361,7 @@ public class Grammar
     {
     	//System.out.println(buffer);
     	
-        Integer weight = Rule.DEFAULT_WEIGHT;
+        Double weight = Rule.DEFAULT_WEIGHT;
         String annotation = "";
         String rule = buffer;
         Pattern p;
@@ -375,7 +375,7 @@ public class Grammar
         	System.out.print("2: "+m.group(2)+" ; ");
         	System.out.println("3: "+m.group(3));*/
         	
-        	weight = Integer.parseInt(m.group(1).trim());
+        	weight = Double.parseDouble(m.group(1).trim());
         	rule = m.group(2).trim();
             annotation = m.group(3).trim();
         }
@@ -388,7 +388,7 @@ public class Grammar
             	/*System.out.print("1: "+m.group(1)+" ; ");
             	System.out.println("2: "+m.group(2));*/
             	
-                weight = Integer.parseInt(m.group(1).trim());
+                weight = Double.parseDouble(m.group(1).trim());
                 rule = m.group(2).trim();
             }
             else

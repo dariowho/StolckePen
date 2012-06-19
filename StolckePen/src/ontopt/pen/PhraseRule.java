@@ -37,7 +37,7 @@ public class PhraseRule extends Rule
      * @param pGrammar
      *            The Grammar containing the rule
      */
-    public PhraseRule(Integer pWeight, String pAnnotation, Integer pHead, ArrayList<Integer> pBody, Grammar pGrammar)
+    public PhraseRule(Double pWeight, String pAnnotation, Integer pHead, ArrayList<Integer> pBody, Grammar pGrammar)
     {
         super(pWeight, pAnnotation, pHead, pGrammar);
         this.body = pBody;
@@ -53,7 +53,7 @@ public class PhraseRule extends Rule
      * @param pGrammar
      *            The grammar containing the rule
      */
-    public PhraseRule(Integer pWeight, String pAnnotation, Integer pHead, Integer body, Grammar pGrammar)
+    public PhraseRule(Double pWeight, String pAnnotation, Integer pHead, Integer body, Grammar pGrammar)
     {
         super(pWeight, pAnnotation, pHead, pGrammar);
         this.body = new ArrayList<Integer>();

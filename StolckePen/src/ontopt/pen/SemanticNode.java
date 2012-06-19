@@ -35,7 +35,7 @@ public class SemanticNode implements Externalizable, Comparable<SemanticNode>
 
     protected String annotation;
 
-    protected int weight;
+    protected Double weight;
 
     /**
      * The parent of this node
@@ -67,7 +67,7 @@ public class SemanticNode implements Externalizable, Comparable<SemanticNode>
      * @param label
      *            Default label to use
      */
-    public SemanticNode(String label, int weight, String annotation)
+    public SemanticNode(String label, Double weight, String annotation)
     {
         this();
         this.label = label;
@@ -507,7 +507,7 @@ public class SemanticNode implements Externalizable, Comparable<SemanticNode>
         label = (String) in.readObject();
     }
 
-    public int getWeight()
+    public Double getWeight()
     {
         return weight;
     }
@@ -517,9 +517,9 @@ public class SemanticNode implements Externalizable, Comparable<SemanticNode>
         return annotation;
     }
 
-    public int getScore()
+    public Double getScore()
     {
-        int score = this.weight;
+        Double score = this.weight;
         for (Enumeration<SemanticNode> en = children(); en.hasMoreElements();)
             score += en.nextElement().getScore();
 
@@ -528,7 +528,15 @@ public class SemanticNode implements Externalizable, Comparable<SemanticNode>
 
     public int compareTo(SemanticNode anotherNode)
     {
-    	return getScore() - ((SemanticNode) anotherNode).getScore();
+    	if ( getScore() - ((SemanticNode) anotherNode).getScore()>0){
+    	 return 1;
+    	}
+    	else{
+    		if( getScore() - ((SemanticNode) anotherNode).getScore()<0){
+    			return -1;
+    		}
+    	}
+    	return 0;
     }
 
     public String getLabel()
