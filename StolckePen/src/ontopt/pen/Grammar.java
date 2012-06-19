@@ -523,6 +523,10 @@ public class Grammar
 		}
 		return id;
 	}
+	
+	public Set<String> getNonterminals() {
+		return this.variables.keySet();
+	}
     /*private Integer getDataType(String token)
     {
         Integer id;

@@ -394,6 +394,18 @@ public class EarleyParser
 
 			}
 
+			
+			System.out.println("Dumping rules with head NP...");
+			Grammar g = parser.getGrammar();
+			for (Rule r : g.getAllRulesWithHead("NP")) {
+				System.out.println(r.getLeftmost());
+			}
+			
+//			System.out.println("Dumping nonterminals...");
+//			Grammar g = parser.getGrammar();
+//			for (String s : g.getNonterminals()) {
+//				System.out.println(s);
+//			}
 		}
 		catch (FileNotFoundException e)
 		{
@@ -410,6 +422,7 @@ public class EarleyParser
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 }

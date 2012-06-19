@@ -51,6 +51,14 @@ public class TerminalRule extends Rule
         return word;
     }
 
+    public String getLeftmost() {
+    	return getWord();
+    }
+    
+    public Integer size() {
+    	return 1;
+    }
+    
     /**
      * Gets a string representation of this rule
      * 

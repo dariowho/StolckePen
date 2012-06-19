@@ -70,11 +70,22 @@ public abstract class Rule
         this.head = head;
         this.grammar = grammar;
     }
+    
+    /**
+     * Gets the nonterminal in the rule's left hand side (LHS).
+     * 
+     * @return The String representation of the rule's LHS
+     */
+    public String getLHS() {
+    	return this.grammar.getDataType(head);
+    }
 
     /**
-     * Gets the Integer representation if this rule.
+     * Gets the Integer representation of the rule's left hand side (LHS).
      * 
-     * @return The Integre Representation of this rule.
+     * TODO: "head" has another meaning in NLP: the name should be changed
+     * 
+     * @return The Integer Representation of this rule.
      */
     public Integer getHead()
     {
@@ -82,7 +93,7 @@ public abstract class Rule
     }
 
     /**
-     * Sets the integer reprsentation of this rule.
+     * Sets the integer representation of this rule.
      * 
      * @param pHead
      *            The integer representation of this rule.
@@ -91,6 +102,10 @@ public abstract class Rule
     {
         this.head = pHead;
     }
+    
+    public abstract Integer size();
+    
+    public abstract String getLeftmost();
 
     /**
      * An abstract method that forces all inheriting classes to implement this method. This method should

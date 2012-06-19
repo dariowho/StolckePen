@@ -80,6 +80,14 @@ public class PhraseRule extends Rule
         this.body = pBody;
     }
 
+    public String getLeftmost() {
+    	return this.grammar.getDataType(this.body.get(0));
+    }
+    
+    public Integer size() {
+    	return this.body.size();
+    }
+    
     /**
      * gets the string representation of this rule.
      * 
