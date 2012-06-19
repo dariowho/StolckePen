@@ -118,7 +118,7 @@ public class EarleyParser
 			}
 		}
 		
-		//printChart();
+		printChart();
 		ArrayList<SemanticNode> trees = getTrees();
 		//parseTime = System.currentTimeMillis() - begin;
 		chartArray = null;
