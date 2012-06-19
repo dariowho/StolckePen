@@ -1,24 +1,25 @@
 package ontopt.pen;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import matrix.Matrix;
 
 public class TransitiveMatrix {
 	private static ArrayList<String> nonTerminalList;
-	private static Matrix probTransLCMatrix;
-	private static Matrix probTransUnitMatrix;
+	private Matrix probTransLCMatrix;
+	private Matrix probTransUnitMatrix;
 	protected static HashMap<String, HashMap<String, Double >> probLCHash;
 	protected static HashMap<String, HashMap<String, Double >> probUnitHash;
 
-	public void getMatrix(ArrayList<String> nonTerminalList, rules){
+	public void getMatrix(ArrayList<String> nonTerminalList, Grammar grammar){
 		this.nonTerminalList=nonTerminalList;
 		
-		probTransLCMatrix = probabilisticLeftCornerRelation(nonTerminalList, rules);
+		probabilisticTransitiveRelation(nonTerminalList, grammar);
     	probTransLCMatrix = computeInverseIdMinusMatrix(probTransLCMatrix, nonTerminalList.size());
     	probLCHash = matrixToHash(probTransLCMatrix, nonTerminalList);
 
-		probTransUnitMatrix = probabilisticUnitProductions(nonTerminalList, rules);
+		
     	probTransUnitMatrix = computeInverseIdMinusMatrix(probTransLCMatrix, nonTerminalList.size());
     	probUnitHash = matrixToHash(probTransLCMatrix, nonTerminalList);
 	}
@@ -26,45 +27,28 @@ public class TransitiveMatrix {
 	 * Build matrix for left corner relations.
 	 */
 	
-	public Matrix probabilisticLeftCornerRelation(ArrayList<String> nonterminal_symbols, HashMap<String, HashMap<ArrayList<String>, Double>> rules) {
+	public void probabilisticTransitiveRelation(ArrayList<String> nonTerminals, Grammar grammar) {
 		//P(X -->left Y) = Sum_{X --> Y mu} P(X --> Y)
 		//rules are of the form: HM<lhs, HM(rhs, probability)>
-		int nrNonTerminals = nonterminal_symbols.size();
+		int nrNonTerminals = nonTerminals.size();
 		
 		double[][] leftCornerProbabilities = new double[nrNonTerminals][nrNonTerminals];
+		double[][] UnitProbabilities = new double[nrNonTerminals][nrNonTerminals];
 		for (int i=0; i< nrNonTerminals; i++) {
-			String lhs = nonterminal_symbols.get(i);
-			for (ArrayList<String> rhs : rules.get(lhs).keySet() ) {
-				String leftCorner = rhs.get(0);
-				//add to probability of lhs --> leftcorner
-				if (nonterminal_symbols.contains(leftCorner))
-					leftCornerProbabilities[i][nonterminal_symbols.indexOf(leftCorner)] += rules.get(lhs).get(rhs);
+			String lhs = nonTerminals.get(i);
+			ArrayList<Rule> rules = grammar.getAllRulesWithHead(lhs);
+			for (Rule r : rules){
+				leftCornerProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
+				if (r.size()==1){
+					UnitProbabilities[nonTerminals.indexOf(r.getLeftmost())][i]+=r.getWeight();
+				}
 			}
 		}
 		
-		return new Matrix(leftCornerProbabilities);
+		this.probTransLCMatrix = new Matrix(leftCornerProbabilities);
+		this.probTransUnitMatrix = new Matrix(UnitProbabilities);
 	}
-	/**
-	 * Build matrix for left corner relations for unit productions.
-	 */
-	public Matrix probabilisticUnitProductions(ArrayList<String> nonterminal_symbols, HashMap<String, HashMap<ArrayList<String>, Double>> rules) {
-		//P(X -->left Y) = Sum_{X --> Y mu} P(X --> Y)
-		//rules are of the form: HM<lhs, HM(rhs, probability)>
-		int nrNonTerminals = nonterminal_symbols.size();
-		
-		double[][] unitProductionProbabilities = new double[nrNonTerminals][nrNonTerminals];
-		for (int i=0; i< nrNonTerminals; i++) {
-			String lhs = nonterminal_symbols.get(i);
-			for (ArrayList<String> rhs : rules.get(lhs).keySet() ) {
-				String leftCorner = rhs.get(0);
-				//add to probability of lhs --> leftcorner
-				if (nonterminal_symbols.contains(leftCorner) && (rhs.size()==1))
-					unitProductionProbabilities[i][nonterminal_symbols.indexOf(leftCorner)] += rules.get(lhs).get(rhs);
-			}
-		}
-		
-		return new Matrix(unitProductionProbabilities);
-	}
+
 	/**
 	 * Compute R_{L} = inverse(I - P_{L})
 	 */
@@ -104,9 +88,9 @@ public class TransitiveMatrix {
 		return hash;
 	}
 	public double getTransitiveLCRelation(String lhs, String rhs){
-		return probLCHash.get(lhs).get(rhs);
+		return this.probLCHash.get(lhs).get(rhs);
 	}
 	public double getTransitiveUnitRelation(String lhs, String rhs){
-		return probUnitHash.get(lhs).get(rhs);
+		return this.probUnitHash.get(lhs).get(rhs);
 	}
 }
