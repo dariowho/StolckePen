@@ -102,17 +102,17 @@ public class EarleyParser
 				row = chartArray[i].getChartRow(j);
 				if (!row.isComplete() && row.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) >= 0)
 				{
-					//System.err.println(1);
+//					System.err.println(1);
 					predictor(row);
 				}
 				else if (!row.isComplete() && row.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) < 0)
 				{
-					//System.err.println(2);
+//					System.err.println(2);
 					scanner(row, sentence);
 				}
 				else
 				{
-					//System.err.println(3);
+//					System.err.println(3);
 					completer(row);
 				}
 			}

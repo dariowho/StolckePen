@@ -13,7 +13,7 @@ package ontopt.pen;
  * Company: CISUC
  * </p>
  * 
- * @author Nuno Seco, Hugo Gonçalo Oliveira
+ * @author Nuno Seco, Hugo Gonï¿½alo Oliveira
  * @version 1.0
  */
 

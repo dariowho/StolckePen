@@ -36,24 +36,24 @@ public class Grammar
 	public static final String START_SYMBOL = "TOP";
 	
     /**
-     * The ID for a sentence. All Phrase types that are in upper case in the grammar file wiil be attributed a
+     * The ID for a sentence. All Phrase types that are in upper case in the grammar file will be attributed a
      * unique ID.
      */
-    public static final Integer PARSE_ROOT = new Integer(9999);
+    public static final Integer PARSE_ROOT = new Integer(999999);
 
     public static final Integer UNKNOWN_TERMINAL = new Integer(-1);
 
     public static final Integer EMPTY_TERMINAL = new Integer(-2);
 
     /**
-     * The begining ID number for new phrases.
+     * The beginning ID number for new phrases.
      */
-    public static final Integer PHRASE_LOWER_LIMIT = new Integer(8000);
+    public static final Integer PHRASE_LOWER_LIMIT = new Integer(500000);
 
     /**
      * The maximum number of phrase types that the parser can deal with,
      */
-    public static final Integer VARIABLES_MAX_NUMBER = new Integer(1998);
+    public static final Integer VARIABLES_MAX_NUMBER = new Integer(5998);
 
     /**
      * The symbol that allows for comments inside the grammar file
@@ -304,13 +304,18 @@ public class Grammar
             File file = new File(grammarFile);
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
+            // For each line in the grammar file
             while ((line = reader.readLine()) != null)
             {
                 line = line.trim();
+                
+                // Comment
                 if (line.equals("") || line.charAt(0) == COMMENT)
                 {
                     continue;
                 }
+                
+                // Inclusion
                 else if (line.startsWith(INCLUDE_INDICATOR))
                 {
                     String includedFile = file.getParent()
@@ -326,6 +331,7 @@ public class Grammar
                     continue;
                 }
 
+                // An actual rule
                 addRule(line);
             }
 
