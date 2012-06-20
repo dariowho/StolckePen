@@ -426,8 +426,6 @@ public class EarleyParser
 //				}
 
 			}
-			
-			
 //			System.out.println("Dumping rules with head NP...");
 //			Grammar g = parser.getGrammar();
 //			for (Rule r : g.getAllRulesWithHead("NP")) {
