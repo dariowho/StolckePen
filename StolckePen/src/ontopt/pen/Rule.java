@@ -121,6 +121,12 @@ public abstract class Rule
     {
         return weight;
     }
+    
+    public Double getProbability()
+    {
+    	// FIXME: Rename all the references to getWeight and remove it
+    	return this.weight;
+    }
 
     public String getAnnotation()
     {

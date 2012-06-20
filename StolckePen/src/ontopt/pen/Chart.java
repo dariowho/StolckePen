@@ -28,8 +28,8 @@ public class Chart
     private ArrayList<ChartRow> chart;
 
     /**
-     * A list that all chartrows from all charts share. This list used for constructing the parse tree. The
-     * original earley algorithm is a membership algorithm and not a parsing algorithm.
+     * A list that all chart rows from all charts share. This list used for constructing the parse tree. The
+     * original Earley algorithm is a membership algorithm and not a parsing algorithm.
      */
     private ArrayList<ChartRow> stateList;
 
@@ -79,6 +79,19 @@ public class Chart
         return (ChartRow) chart.get(index);
     }
 
+    public ChartRow getChartRow(ChartRow row)
+    {
+        for (int i = chart.size() - 1; i >= 0; i--)
+        {
+            if (((ChartRow) chart.get(i)).equals(row))
+            {
+                return chart.get(i);
+            }
+        }
+        
+        return null;
+    }
+    
     /**
      * Checks if the specified row exists in the chart
      */

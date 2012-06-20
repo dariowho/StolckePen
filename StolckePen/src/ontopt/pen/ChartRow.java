@@ -22,6 +22,8 @@ import java.util.ArrayList;
 
 public class ChartRow
 {
+	public final static Double INVALID_PROBABILITY = -1.;
+	
     /**
      * The list of all chart rows
      */
@@ -58,6 +60,16 @@ public class ChartRow
     private int[] positions;
 
     /**
+     * Holds the forward probability in this state (each ChartRow represents a state)
+     */
+    private Double forwardProbability;
+    
+    /**
+     * Holds the inner probability in this state (each ChartRow represents a state)
+     */
+    private Double innerProbability;
+    
+    /**
      * The constructor
      * 
      * @param pRule
@@ -66,6 +78,11 @@ public class ChartRow
     public ChartRow(Rule pRule)
     {
         this(pRule, new int[2]);
+    }
+    
+    public ChartRow(Rule pRule, int[] pPositions)
+    {
+    	this(pRule, pPositions, INVALID_PROBABILITY, INVALID_PROBABILITY);
     }
 
     /**
@@ -76,12 +93,19 @@ public class ChartRow
      * @param pPositions
      *            An array where the first value corresponds to where the rule begins and the second to where
      *            the dot lies always in respect to the input sentence.
+     * @param forwardProbabilityIn
+     *            The forward probability that will be associated to this state.
+     * @param innerProbabilityIn
+     *            The inner probability that will be associated to this state.
      */
-    public ChartRow(Rule pRule, int[] pPositions)
+    public ChartRow(Rule pRule, int[] pPositions, Double forwardProbabilityIn, Double innerProbabilityIn)
     {
-        parents = new ArrayList<Integer>();
+        parents   = new ArrayList<Integer>();
         this.rule = pRule;
         positions = pPositions;
+        
+        this.forwardProbability = forwardProbabilityIn;
+        this.innerProbability   = innerProbabilityIn;
     }
 
     /**
@@ -107,6 +131,24 @@ public class ChartRow
         process = p;
     }
 
+    protected void setForwardProbability(Double pIn)
+    {
+    	this.forwardProbability = pIn;
+    }
+    
+    protected void setInnerProbability(Double pIn)
+    {
+    	this.innerProbability = pIn;
+    }
+    
+    public Double getForwardProbability() {
+    	return this.forwardProbability;
+    }
+    
+    public Double getInnerProbability() {
+    	return this.innerProbability;
+    }
+    
     /**
      * Adds this row to the state list.
      * 
@@ -271,6 +313,6 @@ public class ChartRow
      */
     public String toString()
     {
-        return state + " " + rule.toString() + " [" + positions[0] + " " + positions[1] + "]" + " " + getParents().toString() + " " + process + " " + dot;
+        return state + " " + rule.toString() + " [" + positions[0] + " " + positions[1] + "]" + " " + getParents().toString() + " " + process + " " + dot + " {for:"+this.forwardProbability+", inn:"+this.innerProbability+"}";
     }
 }

@@ -50,6 +50,8 @@ public class EarleyParser
 	 */
 	private long parseTime;
 	
+	private TransitiveMatrix rMatrix;
+	
 	/**
 	 * The constructor
 	 * 
@@ -59,8 +61,10 @@ public class EarleyParser
 	{
 		grammar = new Grammar(grammarFile);
 		new GrammarValidator(grammar).validate();
-		
-		TransitiveMatrix rMatrix = TransitiveMatrix.getMatrix(grammar);
+
+//		System.out.println("Here it would have been printed the matrix..");
+		this.rMatrix = TransitiveMatrix.getMatrix(grammar);
+//		System.out.println(rMatrix.getTransitiveLCRelation("N", "NP"));
 		dummieRule = new PhraseRule(0., "", null, Grammar.PARSE_ROOT, grammar);
 		
 		stop = false;
@@ -206,39 +210,47 @@ public class EarleyParser
 	/**
 	 * The predictor Process. Creates new states representing top-down expectations generated during the
 	 * parsing process. The Predictor is applied to any state that has a nonterminal to the right of the dot
-	 * that is not a part of speech category. This application results in the ccreation of one new state for
-	 * each alternative expansion of that nonterminal privided by the grammar. These new states are placed
+	 * that is not a part of speech category. This application results in the creation of one new state for
+	 * each alternative expansion of that nonterminal provided by the grammar. These new states are placed
 	 * into the same chart entry as the generating state. They begin and end at the point in the input where
 	 * the generating state ends.
 	 * 
 	 * @param row
 	 *            The row to be predicted
 	 */
-	private void predictor(ChartRow row)
+	private void predictor(ChartRow stateIn)
 	{
-		Integer next = row.getNextConstituent();
+		Integer next = stateIn.getNextConstituent();
 		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
 
-		// System.out.println("LISTA: "+list);
+		// System.out.println("LIST: "+list);
 		// System.out.println("ROW: "+row);
 
-		ChartRow newRow;
+		ChartRow newState;
 		int[] positions = new int[2];
-		positions[0] = row.getPositions()[1];
+		positions[0] = stateIn.getPositions()[1];
 		positions[1] = positions[0];
 
 		for (int i = 0; i < list.size(); i++)
 		{
-			newRow = new ChartRow((Rule) list.get(i), positions);
-			newRow.setProcess("Predictor");
-			enqueue(newRow, positions[0]);
+			Rule curRule = list.get(i);
+			
+			newState = new ChartRow(curRule, positions);
+			newState.setProcess("Predictor");
+
+			Double rValue = this.rMatrix.getTransitiveLCRelation(curRule.getLHS(), curRule.getLeftmost());
+			rValue = (rValue != 0) ? rValue : 1;
+			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
+			newState.setInnerProbability(curRule.getProbability());
+			
+			enqueue(newState, positions[0]);
 		}
 	}
 
 	/**
 	 * When a state has a part of speech category to the right of the dot, the scanner is called to examine
 	 * the input and incorporate a state corresponding to the predicted part of speech into the chart. This is
-	 * accomplisged by creating a new state from the input state with the dot advanced over the predicted
+	 * accomplished by creating a new state from the input state with the dot advanced over the predicted
 	 * input category.
 	 * 
 	 * @param row
@@ -246,50 +258,61 @@ public class EarleyParser
 	 * @param sentence
 	 *            The sentence being parsed
 	 */
-	private void scanner(ChartRow row, Sentence sentence)
+	private void scanner(ChartRow stateIn, Sentence sentence)
 	{
-		ChartRow newRow;
+		ChartRow newState;
 		int positions[] = new int[2];
 
-		if (row.getPositions()[1] >= sentence.getSentenceSize())
+		// Special case in which the dot is after the end of the sentence, and an empty terminal is read
+		if (stateIn.getPositions()[1] >= sentence.getSentenceSize())
 		{                    
-			if (row.getNextConstituent() != null && row.getNextConstituent().equals(Grammar.EMPTY_TERMINAL))
+			if (stateIn.getNextConstituent() != null && stateIn.getNextConstituent().equals(Grammar.EMPTY_TERMINAL))
 			{
-				positions[0] = row.getPositions()[1];
-				positions[1] = row.getPositions()[1];
-				newRow = new ChartRow(new TerminalRule(row.getNextConstituent(), "", grammar), positions);
-				newRow.setProcess("Scanner");
-				enqueue(newRow, positions[1]);                                
+				positions[0] = stateIn.getPositions()[1];
+				positions[1] = stateIn.getPositions()[1];
+				newState = new ChartRow(new TerminalRule(stateIn.getNextConstituent(), "", grammar), positions);
+				newState.setProcess("Scanner");
+				
+//				newState.setForwardProbability(stateIn.getInnerProbability());				
+//				newState.setInnerProbability(stateIn.getInnerProbability());
+				
+				// TODO: this might not be needed, check...
+				enqueue(newState, positions[1]);                                
 			}
 			return;
 		}
 
-		Integer next = row.getNextConstituent();
-		String word = sentence.getWord(row.getPositions()[1]);
+		Integer next = stateIn.getNextConstituent();
+		String word = sentence.getWord(stateIn.getPositions()[1]);
 
 		if (grammar.getTerminal(word).equals(next) || next.equals(Grammar.UNKNOWN_TERMINAL))
 		{
-			positions[0] = row.getPositions()[1];
-			positions[1] = row.getPositions()[1] + 1;
-			newRow = new ChartRow(new TerminalRule(next, word, grammar), positions);
-			newRow.setProcess("Scanner");
-			enqueue(newRow, positions[1]);
+			positions[0] = stateIn.getPositions()[1];
+			positions[1] = stateIn.getPositions()[1] + 1;
+			newState = new ChartRow(new TerminalRule(next, word, grammar), positions);
+			newState.setProcess("Scanner");
+			newState.setForwardProbability(stateIn.getInnerProbability());				
+			newState.setInnerProbability(stateIn.getInnerProbability());
+			// FIXME: this might not be needed
+			enqueue(newState, positions[1]);
 		}
 
 		if (next.equals(Grammar.EMPTY_TERMINAL))
 		{
-			positions[0] = row.getPositions()[1];
-			positions[1] = row.getPositions()[1];
-			newRow = new ChartRow(new TerminalRule(next, "", grammar), positions);
-			newRow.setProcess("Scanner");
-			enqueue(newRow, positions[1]);
+			positions[0] = stateIn.getPositions()[1];
+			positions[1] = stateIn.getPositions()[1];
+			newState = new ChartRow(new TerminalRule(next, "", grammar), positions);
+			newState.setProcess("Scanner");
+			// FIXME: do we have to update probabilities here?
+			// FIXME: this might not be needed
+			enqueue(newState, positions[1]);
 		}
 	}
 
 	/**
 	 * The completer is applied to a state when its dot has reached the right end of the rule. Intuitively,
 	 * the presence of such a state represents the fact that the parser has successfully discovered a
-	 * prticular grammatical category over some span of the input. The purpose of the completer is to find
+	 * particular grammatical category over some span of the input. The purpose of the completer is to find
 	 * and advance all previously created states that were looking for this grammatical category at this
 	 * position in he input. New states are then created by copying the older state, advancing the dot over
 	 * the expected category and installing the new state in the current chart entry.
@@ -330,20 +353,27 @@ public class EarleyParser
 	 * @param index
 	 *            the index of the chart
 	 */
-	private void enqueue(ChartRow row, int index)
+	private void enqueue(ChartRow stateIn, int index, Boolean sumProbabilities)
 	{
-		if (row.getRule().getHead() == null)
+		if (stateIn.getRule().getHead() == null)
 		{
 			return;
 		}
 
-		if (!chartArray[index].exists(row))
+		if (!chartArray[index].exists(stateIn))
 		{
-			chartArray[index].addChartRow(row);
-
+			chartArray[index].addChartRow(stateIn);
+		} else if (sumProbabilities == true) {
+			ChartRow stateExisting = chartArray[index].getChartRow(stateIn);
+			stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
 		}
 	}
 
+	private void enqueue(ChartRow stateIn, int index)
+	{
+		enqueue(stateIn, index, false);
+	}
+	
 	/**
 	 * Prints the chart
 	 */
@@ -401,7 +431,7 @@ public class EarleyParser
 			System.out.println("Dumping rules with head NP...");
 			Grammar g = parser.getGrammar();
 			for (Rule r : g.getAllRulesWithHead("NP")) {
-				System.out.println(r.getLeftmost());
+				System.out.println(r);
 			}
 			
 //			System.out.println("Dumping nonterminals...");

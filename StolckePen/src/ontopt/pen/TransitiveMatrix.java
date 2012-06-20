@@ -94,10 +94,10 @@ public class TransitiveMatrix {
 			
 		return hash;
 	}
-	public double getTransitiveLCRelation(String lhs, String rhs){
-		return this.probLCHash.get(lhs).get(rhs);
+	public double getTransitiveLCRelation(String lhs, String rhs){		
+		return (this.probLCHash.get(lhs).containsKey(rhs)) ? this.probLCHash.get(lhs).get(rhs) : 0;
 	}
 	public double getTransitiveUnitRelation(String lhs, String rhs){
-		return this.probUnitHash.get(lhs).get(rhs);
+		return (this.probUnitHash.get(lhs).containsKey(rhs)) ? this.probUnitHash.get(lhs).get(rhs) : 0;
 	}
 }
