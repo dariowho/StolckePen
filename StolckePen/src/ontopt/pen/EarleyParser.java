@@ -333,6 +333,7 @@ public class EarleyParser
 			if (chartArray[chartIndex].getChartRow(i).getPositions()[1] == chartIndex && !chartArray[chartIndex].getChartRow(i).isComplete()
 					&& chartArray[chartIndex].getChartRow(i).getNextConstituent().equals(row.getRule().getHead()))
 			{
+			
 				positions = new int[2];
 
 				positions[0] = chartArray[chartIndex].getChartRow(i).getPositions()[0];
@@ -342,6 +343,12 @@ public class EarleyParser
 				newRow.addParentStates(chartArray[chartIndex].getChartRow(i).getParents());
 				newRow.setProcess("Completer");
 				newRow.setDot(chartArray[chartIndex].getChartRow(i).getDot() + 1);
+
+				ChartRow iState=row;
+				ChartRow jState=chartArray[chartIndex].getChartRow(i);
+				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability());
+				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability());
+				
 				enqueue(newRow, row.getPositions()[1]);
 			}
 		}
@@ -355,7 +362,7 @@ public class EarleyParser
 	 * @param index
 	 *            the index of the chart
 	 */
-	private void enqueue(ChartRow stateIn, int index, Boolean sumProbabilities)
+	private void enqueue(ChartRow stateIn, int index, Boolean sumForwardProbabilities, Boolean sumInnerProbabilities)
 	{
 		if (stateIn.getRule().getHead() == null)
 		{
@@ -365,15 +372,19 @@ public class EarleyParser
 		if (!chartArray[index].exists(stateIn))
 		{
 			chartArray[index].addChartRow(stateIn);
-		} else if (sumProbabilities == true) {
+		} else if (sumForwardProbabilities == true) {
 			ChartRow stateExisting = chartArray[index].getChartRow(stateIn);
 			stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
+			if (sumInnerProbabilities){
+				stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
+				
+			}
 		}
 	}
 
 	private void enqueue(ChartRow stateIn, int index)
 	{
-		enqueue(stateIn, index, false);
+		enqueue(stateIn, index, false,false);
 	}
 	
 	/**
