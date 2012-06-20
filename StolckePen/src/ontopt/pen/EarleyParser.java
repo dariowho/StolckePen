@@ -91,6 +91,8 @@ public class EarleyParser
 		}
 
 		ChartRow row = new ChartRow(dummieRule);
+		row.setForwardProbability(1.);
+		row.setInnerProbability(1.);
 		chartArray[0].addChartRow(row);
 		
 		//System.err.println("sentence size = "+sentence.getSentenceSize());
@@ -420,8 +422,8 @@ public class EarleyParser
 					for (int i = 0; i < parses.size(); i++)
 					{
 						node = parses.get(i);
-						outputter.print(node, false, true, 0);
-						//outputter.printPenn(node);
+						//outputter.print(node, false, true, 0);
+						outputter.printPenn(node);
 					}
 //				}
 
