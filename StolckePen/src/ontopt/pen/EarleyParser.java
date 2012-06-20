@@ -426,13 +426,13 @@ public class EarleyParser
 //				}
 
 			}
-
 			
-			System.out.println("Dumping rules with head NP...");
-			Grammar g = parser.getGrammar();
-			for (Rule r : g.getAllRulesWithHead("NP")) {
-				System.out.println(r);
-			}
+			
+//			System.out.println("Dumping rules with head NP...");
+//			Grammar g = parser.getGrammar();
+//			for (Rule r : g.getAllRulesWithHead("NP")) {
+//				System.out.println(r.getLeftmost());
+//			}
 			
 //			System.out.println("Dumping nonterminals...");
 //			Grammar g = parser.getGrammar();

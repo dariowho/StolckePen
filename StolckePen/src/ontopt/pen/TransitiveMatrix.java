@@ -49,6 +49,15 @@ public class TransitiveMatrix {
 				}
 			}
 		}
+		
+//		for (int i =0; i < nonTerminals.size(); i++) {
+//			for (int j = 0; j < nonTerminals.size(); j++) {	
+//			System.out.print(" " + leftCornerProbabilities[i][j]);	
+//			}
+//			System.out.println("");
+//			}
+		
+		
 		Matrix[] r= new Matrix[2];
 		r[0]= new Matrix(leftCornerProbabilities);
 		r[1] = new Matrix(UnitProbabilities);
@@ -67,6 +76,8 @@ public class TransitiveMatrix {
 		Matrix identityMatrix = new Matrix(matrixArray);
 		
 		//R_{L} = inverse(I - P_{L}) 
+		//(identityMatrix.minus(probLCMatrix)).inverse().print(10,10);
+		
 		return (identityMatrix.minus(probLCMatrix)).inverse();
 	}
 	
