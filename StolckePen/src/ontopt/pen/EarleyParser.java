@@ -91,10 +91,10 @@ public class EarleyParser
 			chart[i] = new ChartColumn(stateList);
 		}
 
-		State row = new State(dummieRule);
-		row.setForwardProbability(1.);
-		row.setInnerProbability(1.);
-		chart[0].addState(row);
+		State curState = new State(dummieRule);
+		curState.setForwardProbability(1.);
+		curState.setInnerProbability(1.);
+		chart[0].addState(curState);
 		
 		//System.err.println("sentence size = "+sentence.getSentenceSize());
 		for (int i = 0; i < sentence.getSentenceSize() + 1; i++)
@@ -110,21 +110,21 @@ public class EarleyParser
 				if(stop)
 					return null;
 				
-				row = chart[i].getState(j);
-				if (!row.isComplete() && row.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) >= 0)
+				curState = chart[i].getState(j);
+				if (!curState.isComplete() && curState.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) >= 0)
 				{
-//					System.err.println(1);
-					predictor(row);
+					// Do not process other predicted states
+					if (curState.getOrigin() == State.STATE_PREDICTED) continue;
+					
+					predictor(curState);
 				}
-				else if (!row.isComplete() && row.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) < 0)
+				else if (!curState.isComplete() && curState.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) < 0)
 				{
-//					System.err.println(2);
-					scanner(row, sentence);
+					scanner(curState, sentence);
 				}
 				else
 				{
-//					System.err.println(3);
-					completer(row);
+					completer(curState);
 				}
 				
 			}
@@ -231,33 +231,36 @@ public class EarleyParser
 	 */
 	private void predictor(State stateIn)
 	{
-		Integer next = stateIn.getNextConstituent();
-		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
-
-		// System.out.println("LIST: "+list);
-		// System.out.println("ROW: "+row);
-
-		State newState;
-		int[] positions = new int[2];
-		positions[0] = stateIn.getPositions()[1];
-		positions[1] = positions[0];
-
-		for (int i = 0; i < list.size(); i++)
-		{
-			Rule curRule = list.get(i);
-			
-			newState = new State(curRule, positions);
-			newState.setProcess("Predictor");
-
-			String curNonterminal = this.grammar.getDataType(next);
-			Double rValue = this.rMatrix.getTransitiveLCRelation(curNonterminal,newState.getRule().getLHS());
-			rValue = (rValue != 0) ? rValue : 1;
-			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
-			newState.setInnerProbability(curRule.getProbability());
-			System.out.println("	%prediction: " + newState);
-			
-			enqueue(newState, positions[0], true, false);
-		}
+		Integer curNonterminal = stateIn.getNextConstituent();
+		
+		
+//		Integer next = stateIn.getNextConstituent();
+//		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
+//
+//		// System.out.println("LIST: "+list);
+//		// System.out.println("ROW: "+row);
+//
+//		State newState;
+//		int[] positions = new int[2];
+//		positions[0] = stateIn.getPositions()[1];
+//		positions[1] = positions[0];
+//
+//		for (int i = 0; i < list.size(); i++)
+//		{
+//			Rule curRule = list.get(i);
+//			
+//			newState = new State(curRule, positions);
+//			newState.setOriginString("Predictor");
+//
+//			String curNonterminal = this.grammar.getDataType(next);
+//			Double rValue = this.rMatrix.getTransitiveLCRelation(curNonterminal,newState.getRule().getLHS());
+//			rValue = (rValue != 0) ? rValue : 1;
+//			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
+//			newState.setInnerProbability(curRule.getProbability());
+//			System.out.println("	%prediction: " + newState);
+//			
+//			enqueue(newState, positions[0], true, false);
+//		}
 	}
 
 	/**
@@ -284,7 +287,7 @@ public class EarleyParser
 				positions[0] = stateIn.getPositions()[1];
 				positions[1] = stateIn.getPositions()[1];
 				newState = new State(new TerminalRule(stateIn.getNextConstituent(), "", grammar), positions);
-				newState.setProcess("Scanner");
+				newState.setOriginString("Scanner");
 
 //				newState.setForwardProbability(stateIn.getInnerProbability());				
 //				newState.setInnerProbability(stateIn.getInnerProbability());
@@ -305,7 +308,7 @@ public class EarleyParser
 			positions[0] = stateIn.getPositions()[1];
 			positions[1] = stateIn.getPositions()[1] + 1;
 			newState = new State(new TerminalRule(next, word, grammar), positions);
-			newState.setProcess("Scanner");
+			newState.setOriginString("Scanner");
 			newState.setForwardProbability(stateIn.getForwardProbability());				
 			newState.setInnerProbability(stateIn.getInnerProbability());
 			System.out.println(Integer.toString(stateIn.getPositions()[0]));
@@ -321,7 +324,7 @@ public class EarleyParser
 			positions[0] = stateIn.getPositions()[1];
 			positions[1] = stateIn.getPositions()[1];
 			newState = new State(new TerminalRule(next, "", grammar), positions);
-			newState.setProcess("Scanner");
+			newState.setOriginString("Scanner");
 			// FIXME: do we have to update probabilities here?
 			// FIXME: the enqueue operation might not be needed (no need of checking for duplicates)
 			System.out.println("	%scan: empty terminal scanned"+newState);
@@ -359,7 +362,7 @@ public class EarleyParser
 				newRow = new State(chart[chartIndex].getState(i).getRule(), positions);
 				newRow.addParentState(row.getState());
 				newRow.addParentStates(chart[chartIndex].getState(i).getParents());
-				newRow.setProcess("Completer");
+				newRow.setOriginString("Completer");
 				newRow.setDot(chart[chartIndex].getState(i).getDot() + 1);
 
 				State iState=row;

@@ -24,6 +24,11 @@ public class State
 {
 	public final static Double INVALID_PROBABILITY = -1.;
 	
+	public static final int STATE_UNKNOWN   = -1;
+	public static final int STATE_SCANNED   =  1;
+	public static final int STATE_COMPLETED =  2;
+	public static final int STATE_PREDICTED =  3;
+	
     /**
      * The list of all chart rows
      */
@@ -34,10 +39,17 @@ public class State
      */
     private ArrayList<Integer> parents;
 
+    
     /**
-     * The process that created the row Predictor, Scanner or Completer
+     * The process that created the state (Predictor, Scanner or Completer).
      */
-    private String process;
+    private int origin;
+    
+    /**
+     * The process that created the state (Predictor, Scanner or Completer),
+     * encoded as a string.
+     */
+    private String originString;
 
     /**
      * The state of the row. A unique identifier
@@ -104,6 +116,9 @@ public class State
         this.rule = pRule;
         positions = pPositions;
         
+        this.origin       = this.STATE_UNKNOWN;
+        this.originString = "unknown";
+        
         this.forwardProbability = forwardProbabilityIn;
         this.innerProbability   = innerProbabilityIn;
     }
@@ -121,14 +136,22 @@ public class State
     }
 
     /**
-     * Sets the name of the process
+     * Sets the name of the originString
      * 
      * @param p
      *            The name to be set
      */
-    protected void setProcess(String p)
+    protected void setOriginString(String p)
     {
-        process = p;
+        originString = p;
+    }
+    
+    protected void setOrigin(int originIn) {
+    	this.origin = originIn;
+    }
+    
+    protected int getOrigin() {
+    	return this.origin;
     }
 
     protected void setForwardProbability(Double pIn)
@@ -313,6 +336,6 @@ public class State
      */
     public String toString()
     {
-        return state + " " + rule.toString() + " [" + positions[0] + " " + positions[1] + "]" + " " + getParents().toString() + " " + process + " " + dot + " {for:"+this.forwardProbability+", inn:"+this.innerProbability+"}";
+        return state + " " + rule.toString() + " [" + positions[0] + " " + positions[1] + "]" + " " + getParents().toString() + " " + originString + " " + dot + " {for:"+this.forwardProbability+", inn:"+this.innerProbability+"}";
     }
 }
