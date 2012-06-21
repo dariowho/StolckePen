@@ -247,7 +247,7 @@ public class EarleyParser
 			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 			newState.setInnerProbability(curRule.getProbability());
 			
-			enqueue(newState, positions[0], true, false);
+			enqueue(newState, positions[0], false, false);
 		}
 	}
 
@@ -358,7 +358,7 @@ public class EarleyParser
 				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability()*rValue);
 				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability()*rValue);
 				
-				enqueue(newRow, row.getPositions()[1], true, true);
+				enqueue(newRow, row.getPositions()[1], false, false);
 			}
 		}
 	}
