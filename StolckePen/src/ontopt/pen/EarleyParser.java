@@ -242,7 +242,7 @@ public class EarleyParser
 
 			Double rValue = this.rMatrix.getTransitiveLCRelation(curRule.getLHS(), curRule.getLeftmost());
 			System.out.println("Prediction R: " + Double.toString(rValue));
-			rValue = (rValue != -1) ? rValue : 1;
+			rValue = (rValue != 0) ? rValue : 1;
 			System.out.println("Prediction R: " + Double.toString(rValue));
 			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 			newState.setInnerProbability(curRule.getProbability());
@@ -352,7 +352,7 @@ public class EarleyParser
 				Rule curRule = chartArray[chartIndex].getChartRow(i).getRule();
 				if (curRule.size()>1){
 					rValue = this.rMatrix.getTransitiveUnitRelation(curRule.getLHS(), curRule.getLeftmost());
-					rValue = (rValue != -1) ? rValue : 1;
+					rValue = (rValue != 0) ? rValue : 1;
 				}
 				System.out.println("completion R: " + Double.toString(rValue));
 				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability()*rValue);
@@ -448,11 +448,11 @@ public class EarleyParser
 //				}
 
 			}
-			
-			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "S"));
-			System.out.println(parser.rMatrix.getTransitiveLCRelation("TOP", "S"));
-			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "TOP"));
-			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "a"));
+//			
+//			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "S"));
+//			System.out.println(parser.rMatrix.getTransitiveLCRelation("TOP", "S"));
+//			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "TOP"));
+//			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "a"));
 			parser.rMatrix.printRMatrix();
 			
 //			System.out.println("Dumping rules with head NP...");

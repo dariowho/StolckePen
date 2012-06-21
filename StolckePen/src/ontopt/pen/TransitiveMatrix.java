@@ -86,9 +86,10 @@ public class TransitiveMatrix {
 	 */
 	public static HashMap<String, HashMap<String, Double>> matrixToHash(Matrix Matrix, List<String> nonterminal_symbols) {
 		HashMap<String, HashMap<String, Double>> hash = new HashMap<String, HashMap<String, Double>>();
-		HashMap<String, Double> temp_hash = new HashMap<String, Double>();
+		
 		
 		for (int rowIndex = 0; rowIndex<nonterminal_symbols.size(); rowIndex++) {
+			HashMap<String, Double> temp_hash = new HashMap<String, Double>();
 			for (int columnIndex = 0; columnIndex<nonterminal_symbols.size(); columnIndex++) {
 				double prob = Matrix.get(rowIndex, columnIndex);
 				//System.out.println(Double.toString(prob));
@@ -98,7 +99,6 @@ public class TransitiveMatrix {
 				}
 			}
 			hash.put(nonterminal_symbols.get(rowIndex), temp_hash);
-			temp_hash.clear();
 				
 		}
 			
@@ -109,13 +109,13 @@ public class TransitiveMatrix {
 		if (this.probLCHash.get(lhs).containsKey(rhs)){
 			return this.probLCHash.get(lhs).get(rhs);
 		}
-		return -1;
+		return 0;
 	}
 	public double getTransitiveUnitRelation(String lhs, String rhs){
 		if (this.probUnitHash.get(lhs).containsKey(rhs)){
 			this.probUnitHash.get(lhs).get(rhs);
 		}
-		return -1;
+		return 0;
 	}
 	
 	public void printRMatrix() {
