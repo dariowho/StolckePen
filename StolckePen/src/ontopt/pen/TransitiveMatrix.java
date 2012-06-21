@@ -76,7 +76,7 @@ public class TransitiveMatrix {
 		Matrix identityMatrix = new Matrix(matrixArray);
 		
 		//R_{L} = inverse(I - P_{L}) 
-		//(identityMatrix.minus(probLCMatrix)).inverse().print(10,10);
+		(identityMatrix.minus(probLCMatrix)).inverse().print(10,10);
 		
 		return (identityMatrix.minus(probLCMatrix)).inverse();
 	}
@@ -92,7 +92,7 @@ public class TransitiveMatrix {
 			for (int columnIndex = 0; columnIndex<nonterminal_symbols.size(); columnIndex++) {
 				double prob = Matrix.get(rowIndex, columnIndex);
 				//System.out.println(Double.toString(prob));
-				if (prob >0.) {
+				if ( prob >0.) {
 					temp_hash.put(nonterminal_symbols.get(columnIndex), prob);
 					//System.out.println(nonterminal_symbols.get(rowIndex)+" -->  " + nonterminal_symbols.get(columnIndex)+" = " + Double.toString(prob));
 				}
@@ -106,9 +106,15 @@ public class TransitiveMatrix {
 		return hash;
 	}
 	public double getTransitiveLCRelation(String lhs, String rhs){		
-		return (this.probLCHash.get(lhs).containsKey(rhs)) ? this.probLCHash.get(lhs).get(rhs) : 0;
+		if (this.probLCHash.get(lhs).containsKey(rhs)){
+			return this.probLCHash.get(lhs).get(rhs);
+		}
+		return -1;
 	}
 	public double getTransitiveUnitRelation(String lhs, String rhs){
-		return (this.probUnitHash.get(lhs).containsKey(rhs)) ? this.probUnitHash.get(lhs).get(rhs) : 0;
+		if (this.probUnitHash.get(lhs).containsKey(rhs)){
+			this.probUnitHash.get(lhs).get(rhs);
+		}
+		return -1;
 	}
 }
