@@ -245,7 +245,7 @@ public class EarleyParser
 			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 			newState.setInnerProbability(curRule.getProbability());
 			
-			enqueue(newState, positions[0]);
+			enqueue(newState, positions[0], true, false);
 		}
 	}
 
@@ -306,7 +306,7 @@ public class EarleyParser
 			newState = new ChartRow(new TerminalRule(next, "", grammar), positions);
 			newState.setProcess("Scanner");
 			// FIXME: do we have to update probabilities here?
-			// FIXME: this might not be needed
+			// FIXME: the enqueue operation might not be needed (no need of checking for duplicates)
 			enqueue(newState, positions[1]);
 		}
 	}
@@ -349,7 +349,7 @@ public class EarleyParser
 				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability());
 				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability());
 				
-				enqueue(newRow, row.getPositions()[1]);
+				enqueue(newRow, row.getPositions()[1], true, true);
 			}
 		}
 	}
@@ -439,6 +439,13 @@ public class EarleyParser
 //				}
 
 			}
+			
+			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "S"));
+			System.out.println(parser.rMatrix.getTransitiveLCRelation("TOP", "S"));
+			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "TOP"));
+			System.out.println(parser.rMatrix.getTransitiveLCRelation("S", "a"));
+			parser.rMatrix.printRMatrix();
+			
 //			System.out.println("Dumping rules with head NP...");
 //			Grammar g = parser.getGrammar();
 //			for (Rule r : g.getAllRulesWithHead("NP")) {

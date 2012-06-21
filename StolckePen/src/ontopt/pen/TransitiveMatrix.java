@@ -111,4 +111,18 @@ public class TransitiveMatrix {
 	public double getTransitiveUnitRelation(String lhs, String rhs){
 		return (this.probUnitHash.get(lhs).containsKey(rhs)) ? this.probUnitHash.get(lhs).get(rhs) : 0;
 	}
+	
+	public void printRMatrix() {
+		for (String lhs : this.probLCHash.keySet()) {
+			System.out.print("["+lhs+"]\n\t");
+			if (this.probLCHash.get("lhs") == null) {
+				System.out.println("[null rhs]");
+				continue;
+			}
+			for (String rhs : this.probLCHash.get("lhs").keySet()) {
+				System.out.print("["+rhs+": "+this.probLCHash.get("lhs").get("rhs")+"] ");
+			}
+			System.out.println();
+		}
+	}
 }
