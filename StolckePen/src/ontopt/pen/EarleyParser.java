@@ -279,7 +279,7 @@ public class EarleyParser
 //				newState.setInnerProbability(stateIn.getInnerProbability());
 				
 				// TODO: this might not be needed, check...
-				enqueue(newState, positions[1]);                                
+				enqueue(newState, positions[1],false,false);                                
 			}
 			return;
 		}
@@ -293,7 +293,7 @@ public class EarleyParser
 			positions[1] = stateIn.getPositions()[1] + 1;
 			newState = new ChartRow(new TerminalRule(next, word, grammar), positions);
 			newState.setProcess("Scanner");
-			newState.setForwardProbability(stateIn.getInnerProbability());				
+			newState.setForwardProbability(stateIn.getForwardProbability());				
 			newState.setInnerProbability(stateIn.getInnerProbability());
 			// FIXME: this might not be needed
 			enqueue(newState, positions[1]);
@@ -346,8 +346,14 @@ public class EarleyParser
 
 				ChartRow iState=row;
 				ChartRow jState=chartArray[chartIndex].getChartRow(i);
-				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability());
-				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability());
+				Double rValue=1.;
+				Rule curRule = chartArray[chartIndex].getChartRow(i).getRule();
+				if (curRule.size()>1){
+					rValue = this.rMatrix.getTransitiveUnitRelation(curRule.getLHS(), curRule.getLeftmost());
+					rValue = (rValue != 0) ? rValue : 1;
+				}
+				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability()*rValue);
+				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability()*rValue);
 				
 				enqueue(newRow, row.getPositions()[1], true, true);
 			}
