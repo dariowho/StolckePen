@@ -310,7 +310,9 @@ public class EarleyParser
 			newState.setInnerProbability(stateIn.getInnerProbability());
 			System.out.println(Integer.toString(stateIn.getPositions()[0]));
 			
-			sentence.updatePrefix(stateIn.getForwardProbability(), stateIn.getPositions()[0]);
+			
+			// FIXME:this might not work if the Grammar does contains terminal production which are non unit productions
+			sentence.updatePrefix(stateIn.getForwardProbability(), stateIn.getPositions()[1]);
 			System.out.println("	%scan: "+newState);
 			// FIXME: this might not be needed
 			enqueue(newState, positions[1]);
