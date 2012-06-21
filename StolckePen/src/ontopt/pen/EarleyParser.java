@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * <p>
@@ -114,9 +116,7 @@ public class EarleyParser
 				if (!curState.isComplete() && curState.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) >= 0)
 				{
 					// Do not process other predicted states
-					if (curState.getOrigin() == State.STATE_PREDICTED) continue;
-					
-					predictor(curState);
+					if (curState.getOrigin() != State.STATE_PREDICTED) predictor(curState);
 				}
 				else if (!curState.isComplete() && curState.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) < 0)
 				{
@@ -130,8 +130,8 @@ public class EarleyParser
 			}
 			if(i<sentence.getSentenceSize()){
 				
-			System.out.println("Prefix Probabilitie:");
-			System.out.println(Double.toString(sentence.getPrefix(i)));
+//			System.out.println("Prefix Probabilitie:");
+//			System.out.println(Double.toString(sentence.getPrefix(i)));
 		
 			}
 		}
@@ -231,8 +231,32 @@ public class EarleyParser
 	 */
 	private void predictor(State stateIn)
 	{
-		Integer curNonterminal = stateIn.getNextConstituent();
+		// The starting nonterminal is the one right after the dot
+		String curNonterminal = this.grammar.getDataType(stateIn.getNextConstituent());
 		
+		State newState;
+		int[] positions = new int[2];
+		positions[0] = stateIn.getPositions()[1];
+		positions[1] = positions[0];
+		
+		// For each entry in the R matrix which is not zero and has curRoot as a row
+		for (Entry<String,Double> rEntry : this.rMatrix.getTransitiveLCRelationSet(curNonterminal)) {
+			for (Rule curRule : grammar.getAllRulesWithHead(rEntry.getKey())) {
+				
+				newState = new State(curRule, positions);
+				newState.setOrigin(State.STATE_PREDICTED);
+				newState.setOriginString("Predictor");
+	
+//				Double rValue = this.rMatrix.getTransitiveLCRelation(curNonterminal,newState.getRule().getLHS());
+				Double rValue = rEntry.getValue();
+				rValue = (rValue != 0) ? rValue : 1;
+				newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
+				newState.setInnerProbability(curRule.getProbability());
+				System.out.println("	%prediction: " + newState);
+				
+				enqueue(newState, positions[0], true, false);
+			}
+		}
 		
 //		Integer next = stateIn.getNextConstituent();
 //		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
