@@ -123,9 +123,15 @@ public class EarleyParser
 //					System.err.println(3);
 					completer(row);
 				}
+				
+			}
+			if(i<sentence.getSentenceSize()){
+				
+			System.out.println("Prefix Probabilitie:");
+			System.out.println(Double.toString(sentence.getPrefix(i)));
+		
 			}
 		}
-		
 		printChart();
 		ArrayList<SemanticNode> trees = getTrees();
 		//parseTime = System.currentTimeMillis() - begin;
@@ -240,13 +246,14 @@ public class EarleyParser
 			newState = new ChartRow(curRule, positions);
 			newState.setProcess("Predictor");
 
-			Double rValue = this.rMatrix.getTransitiveLCRelation(curRule.getLHS(), curRule.getLeftmost());
+			String curNonterminal = this.grammar.getDataType(next);
+			Double rValue = this.rMatrix.getTransitiveLCRelation(curNonterminal,newState.getRule().getLHS());
 			rValue = (rValue != 0) ? rValue : 1;
 			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 			newState.setInnerProbability(curRule.getProbability());
 			System.out.println("	%prediction: " + newState);
 			
-			enqueue(newState, positions[0], false, false);
+			enqueue(newState, positions[0], true, false);
 		}
 	}
 
@@ -275,7 +282,7 @@ public class EarleyParser
 				positions[1] = stateIn.getPositions()[1];
 				newState = new ChartRow(new TerminalRule(stateIn.getNextConstituent(), "", grammar), positions);
 				newState.setProcess("Scanner");
-				
+
 //				newState.setForwardProbability(stateIn.getInnerProbability());				
 //				newState.setInnerProbability(stateIn.getInnerProbability());
 				
@@ -298,7 +305,9 @@ public class EarleyParser
 			newState.setProcess("Scanner");
 			newState.setForwardProbability(stateIn.getForwardProbability());				
 			newState.setInnerProbability(stateIn.getInnerProbability());
+			System.out.println(Integer.toString(stateIn.getPositions()[0]));
 			
+			sentence.updatePrefix(stateIn.getForwardProbability(), stateIn.getPositions()[0]);
 			System.out.println("	%scan: "+newState);
 			// FIXME: this might not be needed
 			enqueue(newState, positions[1]);
@@ -392,10 +401,11 @@ public class EarleyParser
 			if (sumForwardProbabilities == true) {
 				stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
 				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
-				if (sumInnerProbabilities){
+			}
+			
+			if (sumInnerProbabilities){
 					stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
 					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
-				}
 			}
 		}
 	}
