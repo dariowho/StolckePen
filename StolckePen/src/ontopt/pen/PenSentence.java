@@ -115,4 +115,24 @@ public class PenSentence extends Sentence
         System.out.println(s.toString());
     }
 
+	public void updatePrefix(double prob, int index) {
+		System.out.println(prefixProbabilities.size());
+		if (prefixProbabilities.size()==index){
+			prefixProbabilities.add(prob);
+		}
+		else {
+			prefixProbabilities.set(index,prefixProbabilities.get(index) + prob);
+		}
+	}
+
+	@Override
+	public double getSentenceSize(int index) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double getPrefix(int index) {
+		return prefixProbabilities.get(index);
+	}
+
 }

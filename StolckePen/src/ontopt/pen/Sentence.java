@@ -6,15 +6,18 @@ public abstract class Sentence {
 
 	protected ArrayList<String> _sentence;
 	
+	protected ArrayList<Double> prefixProbabilities;
+	
 	public Sentence()
 	{
-		
+		prefixProbabilities = new ArrayList<Double>();
 	}
 	
     public void setSentence(String sentence)
     {
         tokenize(sentence);
-    }
+        
+    } 
 	
 	protected abstract void tokenize(String sentence);
 	
@@ -31,4 +34,10 @@ public abstract class Sentence {
     public abstract int getSentenceSize();
    
     public abstract String toString();
+    
+    public abstract void updatePrefix(double prob,int index);
+    
+    public abstract double getPrefix(int index);
+    
+    public abstract double getSentenceSize(int index);
 }
