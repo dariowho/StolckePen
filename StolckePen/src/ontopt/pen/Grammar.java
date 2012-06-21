@@ -47,11 +47,19 @@ public class Grammar
 
     /**
      * The beginning ID number for new phrases.
+     * 
+     * FIXME: looks like with "phrase" they mean "constituent", and this constant
+     * represents the minimum ID which is given to each nonterminal. Check this
+     * and change the name.
      */
     public static final Integer PHRASE_LOWER_LIMIT = new Integer(500000);
 
     /**
      * The maximum number of phrase types that the parser can deal with,
+     * 
+     * FIXME: looks like this number represents the maximum number of allowed
+     * nonterminals. Check and change the name. (also, it's not a great thing
+     * to have a limit on the number of nonterminals...)
      */
     public static final Integer VARIABLES_MAX_NUMBER = new Integer(5998);
 
