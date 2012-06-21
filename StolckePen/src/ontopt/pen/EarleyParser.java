@@ -101,6 +101,8 @@ public class EarleyParser
 			if(stop)
 				return null;
 			
+			System.out.println("\n\n%%State "+i);
+			
 			//System.err.println("chart array ["+i+"] size= "+chartArray[i].size());
 			for (int j = 0; j < chartArray[i].size(); j++)
 			{
