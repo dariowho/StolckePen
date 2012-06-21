@@ -20,14 +20,14 @@ import java.util.ArrayList;
  * @version 1.0
  */
 
-public class ChartRow
+public class State
 {
 	public final static Double INVALID_PROBABILITY = -1.;
 	
     /**
      * The list of all chart rows
      */
-    private ArrayList<ChartRow> stateList;
+    private ArrayList<State> stateList;
 
     /**
      * The list of rules that contributed to the present state of this row
@@ -60,12 +60,12 @@ public class ChartRow
     private int[] positions;
 
     /**
-     * Holds the forward probability in this state (each ChartRow represents a state)
+     * Holds the forward probability in this state (each State represents a state)
      */
     private Double forwardProbability;
     
     /**
-     * Holds the inner probability in this state (each ChartRow represents a state)
+     * Holds the inner probability in this state (each State represents a state)
      */
     private Double innerProbability;
     
@@ -75,12 +75,12 @@ public class ChartRow
      * @param pRule
      *            The rule used in this row
      */
-    public ChartRow(Rule pRule)
+    public State(Rule pRule)
     {
         this(pRule, new int[2]);
     }
     
-    public ChartRow(Rule pRule, int[] pPositions)
+    public State(Rule pRule, int[] pPositions)
     {
     	this(pRule, pPositions, INVALID_PROBABILITY, INVALID_PROBABILITY);
     }
@@ -98,7 +98,7 @@ public class ChartRow
      * @param innerProbabilityIn
      *            The inner probability that will be associated to this state.
      */
-    public ChartRow(Rule pRule, int[] pPositions, Double forwardProbabilityIn, Double innerProbabilityIn)
+    public State(Rule pRule, int[] pPositions, Double forwardProbabilityIn, Double innerProbabilityIn)
     {
         parents   = new ArrayList<Integer>();
         this.rule = pRule;
@@ -115,9 +115,9 @@ public class ChartRow
      *            The state to look for
      * @return The row with the state
      */
-    public ChartRow getChartRowFromState(Integer pState)
+    public State getStateFromState(Integer pState)
     {
-        return (ChartRow) stateList.get(pState.intValue());
+        return (State) stateList.get(pState.intValue());
     }
 
     /**
@@ -155,7 +155,7 @@ public class ChartRow
      * @param pStateList
      *            The global state list that is shared
      */
-    protected void incState(ArrayList<ChartRow> pStateList)
+    protected void incState(ArrayList<State> pStateList)
     {
         this.stateList = pStateList;
         state = new Integer(this.stateList.size());
@@ -271,9 +271,9 @@ public class ChartRow
      */
     public boolean isComplete()
     {
-        if (rule instanceof PhraseRule)
+        if (rule instanceof NonterminalRule)
         {
-            return (dot == ((PhraseRule) rule).body.size());
+            return (dot == ((NonterminalRule) rule).body.size());
         }
 
         return true; // its a terminal
@@ -286,9 +286,9 @@ public class ChartRow
      */
     public Integer getNextConstituent()
     {
-        if (rule instanceof PhraseRule && !isComplete())
+        if (rule instanceof NonterminalRule && !isComplete())
         {
-            return (Integer) ((PhraseRule) rule).getBody().get(dot);
+            return (Integer) ((NonterminalRule) rule).getBody().get(dot);
         }
 
         return null;
@@ -301,7 +301,7 @@ public class ChartRow
      *            The row to compare to
      * @return true if they are equal, false otherwise
      */
-    public boolean equals(ChartRow row)
+    public boolean equals(State row)
     {
         return (row.rule.equals(this.rule) && row.positions[0] == this.positions[0] && row.positions[1] == this.positions[1] && this.getParents().equals(row.getParents()));
     }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 
-public class PhraseRule extends Rule
+public class NonterminalRule extends Rule
 {
     /**
      * Represents the body of the rule. e.g. HEAD - B1, B2, ..., Bn Everything to the right of - is the body.
@@ -37,7 +37,7 @@ public class PhraseRule extends Rule
      * @param pGrammar
      *            The Grammar containing the rule
      */
-    public PhraseRule(Double pWeight, String pAnnotation, Integer pHead, ArrayList<Integer> pBody, Grammar pGrammar)
+    public NonterminalRule(Double pWeight, String pAnnotation, Integer pHead, ArrayList<Integer> pBody, Grammar pGrammar)
     {
         super(pWeight, pAnnotation, pHead, pGrammar);
         this.body = pBody;
@@ -53,7 +53,7 @@ public class PhraseRule extends Rule
      * @param pGrammar
      *            The grammar containing the rule
      */
-    public PhraseRule(Double pWeight, String pAnnotation, Integer pHead, Integer body, Grammar pGrammar)
+    public NonterminalRule(Double pWeight, String pAnnotation, Integer pHead, Integer body, Grammar pGrammar)
     {
         super(pWeight, pAnnotation, pHead, pGrammar);
         this.body = new ArrayList<Integer>();
@@ -115,9 +115,9 @@ public class PhraseRule extends Rule
      */
     public boolean equals(Rule pRule)
     {
-        if (pRule instanceof PhraseRule && this.head != null)
+        if (pRule instanceof NonterminalRule && this.head != null)
         {
-            return (this.head.equals(pRule.head) && this.body.equals(((PhraseRule) pRule).body));
+            return (this.head.equals(pRule.head) && this.body.equals(((NonterminalRule) pRule).body));
         }
 
         return false;

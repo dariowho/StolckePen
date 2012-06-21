@@ -33,7 +33,7 @@ public class EarleyParser
 	/**
 	 * A dummy rule. This is the first rule to be put in the chart. it initializes the parsing process
 	 */
-	private PhraseRule dummieRule;
+	private NonterminalRule dummieRule;
 
 	/**
 	 * The grammar that has the syntactic rules.
@@ -41,9 +41,10 @@ public class EarleyParser
 	private Grammar grammar;
 
 	/**
-	 * An array of charts. The n+1 charts, where n = number of words in sentence.
+	 * An array of charts columns, being the Earley parser chart, composed of n+1
+	 * columns, where n = number of words in sentence.
 	 */
-	private Chart[] chartArray;
+	private ChartColumn[] chart;
 
 	/**
 	 * Time spent in parsing
@@ -65,7 +66,7 @@ public class EarleyParser
 //		System.out.println("Here it would have been printed the matrix..");
 		this.rMatrix = TransitiveMatrix.getMatrix(grammar);
 //		System.out.println(rMatrix.getTransitiveLCRelation("N", "NP"));
-		dummieRule = new PhraseRule(0., "", null, Grammar.PARSE_ROOT, grammar);
+		dummieRule = new NonterminalRule(0., "", null, Grammar.PARSE_ROOT, grammar);
 		
 		stop = false;
 	}
@@ -82,18 +83,18 @@ public class EarleyParser
 		stop = false;
 		
 		//long begin = System.currentTimeMillis();
-		chartArray = new Chart[sentence.getSentenceSize() + 1];
-		ArrayList<ChartRow> stateList = new ArrayList<ChartRow>();
+		chart = new ChartColumn[sentence.getSentenceSize() + 1];
+		ArrayList<State> stateList = new ArrayList<State>();
 	
-		for (int i = 0; i < chartArray.length; i++)
+		for (int i = 0; i < chart.length; i++)
 		{			
-			chartArray[i] = new Chart(stateList);
+			chart[i] = new ChartColumn(stateList);
 		}
 
-		ChartRow row = new ChartRow(dummieRule);
+		State row = new State(dummieRule);
 		row.setForwardProbability(1.);
 		row.setInnerProbability(1.);
-		chartArray[0].addChartRow(row);
+		chart[0].addState(row);
 		
 		//System.err.println("sentence size = "+sentence.getSentenceSize());
 		for (int i = 0; i < sentence.getSentenceSize() + 1; i++)
@@ -103,13 +104,13 @@ public class EarleyParser
 			
 			System.out.println("\n\n%%State "+i);
 			
-			//System.err.println("chart array ["+i+"] size= "+chartArray[i].size());
-			for (int j = 0; j < chartArray[i].size(); j++)
+			//System.err.println("chart array ["+i+"] size= "+chart[i].size());
+			for (int j = 0; j < chart[i].size(); j++)
 			{
 				if(stop)
 					return null;
 				
-				row = chartArray[i].getChartRow(j);
+				row = chart[i].getState(j);
 				if (!row.isComplete() && row.getNextConstituent().compareTo(Grammar.PHRASE_LOWER_LIMIT) >= 0)
 				{
 //					System.err.println(1);
@@ -137,7 +138,7 @@ public class EarleyParser
 		printChart();
 		ArrayList<SemanticNode> trees = getTrees();
 		//parseTime = System.currentTimeMillis() - begin;
-		chartArray = null;
+		chart = null;
 		return trees;
 	}
 
@@ -173,12 +174,12 @@ public class EarleyParser
 	 */
 	public ArrayList<SemanticNode> getTrees()
 	{
-		ArrayList<ChartRow> ruleRoots = chartArray[chartArray.length - 1].getRoots();
+		ArrayList<State> ruleRoots = chart[chart.length - 1].getRoots();
 		ArrayList<SemanticNode> sentenceRoots = new ArrayList<SemanticNode>();
 
 		for (int i = 0; i < ruleRoots.size(); i++)
 		{
-			sentenceRoots.add(getTree((ChartRow) ruleRoots.get(i)));
+			sentenceRoots.add(getTree((State) ruleRoots.get(i)));
 		}
 
 		Collections.sort(sentenceRoots);
@@ -193,14 +194,14 @@ public class EarleyParser
 	 *            The chartrow
 	 * @return The parse tree
 	 */
-	private SemanticNode getTree(ChartRow node)
+	private SemanticNode getTree(State node)
 	{
 		ArrayList<Integer> parents = node.getParents();
 		SemanticNode root;
 
 		Rule rule = node.getRule();
 
-		if (rule instanceof PhraseRule)
+		if (rule instanceof NonterminalRule)
 		{
 			root = new SemanticNode(grammar.getDataType(rule.getHead()), rule.getWeight(), rule.getAnnotation());
 		}
@@ -211,7 +212,7 @@ public class EarleyParser
 
 		for (int i = parents.size() - 1; i >= 0; i--)
 		{
-			root.addChild(getTree(node.getChartRowFromState((Integer) parents.get(i))));
+			root.addChild(getTree(node.getStateFromState((Integer) parents.get(i))));
 		}
 
 		return root;
@@ -228,7 +229,7 @@ public class EarleyParser
 	 * @param row
 	 *            The row to be predicted
 	 */
-	private void predictor(ChartRow stateIn)
+	private void predictor(State stateIn)
 	{
 		Integer next = stateIn.getNextConstituent();
 		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
@@ -236,7 +237,7 @@ public class EarleyParser
 		// System.out.println("LIST: "+list);
 		// System.out.println("ROW: "+row);
 
-		ChartRow newState;
+		State newState;
 		int[] positions = new int[2];
 		positions[0] = stateIn.getPositions()[1];
 		positions[1] = positions[0];
@@ -245,7 +246,7 @@ public class EarleyParser
 		{
 			Rule curRule = list.get(i);
 			
-			newState = new ChartRow(curRule, positions);
+			newState = new State(curRule, positions);
 			newState.setProcess("Predictor");
 
 			String curNonterminal = this.grammar.getDataType(next);
@@ -270,9 +271,9 @@ public class EarleyParser
 	 * @param sentence
 	 *            The sentence being parsed
 	 */
-	private void scanner(ChartRow stateIn, Sentence sentence)
+	private void scanner(State stateIn, Sentence sentence)
 	{
-		ChartRow newState;
+		State newState;
 		int positions[] = new int[2];
 
 		// Special case in which the dot is after the end of the sentence, and an empty terminal is read
@@ -282,7 +283,7 @@ public class EarleyParser
 			{
 				positions[0] = stateIn.getPositions()[1];
 				positions[1] = stateIn.getPositions()[1];
-				newState = new ChartRow(new TerminalRule(stateIn.getNextConstituent(), "", grammar), positions);
+				newState = new State(new TerminalRule(stateIn.getNextConstituent(), "", grammar), positions);
 				newState.setProcess("Scanner");
 
 //				newState.setForwardProbability(stateIn.getInnerProbability());				
@@ -303,7 +304,7 @@ public class EarleyParser
 		{
 			positions[0] = stateIn.getPositions()[1];
 			positions[1] = stateIn.getPositions()[1] + 1;
-			newState = new ChartRow(new TerminalRule(next, word, grammar), positions);
+			newState = new State(new TerminalRule(next, word, grammar), positions);
 			newState.setProcess("Scanner");
 			newState.setForwardProbability(stateIn.getForwardProbability());				
 			newState.setInnerProbability(stateIn.getInnerProbability());
@@ -319,7 +320,7 @@ public class EarleyParser
 		{
 			positions[0] = stateIn.getPositions()[1];
 			positions[1] = stateIn.getPositions()[1];
-			newState = new ChartRow(new TerminalRule(next, "", grammar), positions);
+			newState = new State(new TerminalRule(next, "", grammar), positions);
 			newState.setProcess("Scanner");
 			// FIXME: do we have to update probabilities here?
 			// FIXME: the enqueue operation might not be needed (no need of checking for duplicates)
@@ -339,32 +340,32 @@ public class EarleyParser
 	 * @param row
 	 *            The row of the chart
 	 */
-	private void completer(ChartRow row)
+	private void completer(State row)
 	{
 		int chartIndex = row.getPositions()[0];
-		ChartRow newRow;
+		State newRow;
 		int positions[];
-		for (int i = 0; i < chartArray[chartIndex].size(); i++)
+		for (int i = 0; i < chart[chartIndex].size(); i++)
 		{
 
-			if (chartArray[chartIndex].getChartRow(i).getPositions()[1] == chartIndex && !chartArray[chartIndex].getChartRow(i).isComplete()
-					&& chartArray[chartIndex].getChartRow(i).getNextConstituent().equals(row.getRule().getHead()))
+			if (chart[chartIndex].getState(i).getPositions()[1] == chartIndex && !chart[chartIndex].getState(i).isComplete()
+					&& chart[chartIndex].getState(i).getNextConstituent().equals(row.getRule().getHead()))
 			{
 			
 				positions = new int[2];
 
-				positions[0] = chartArray[chartIndex].getChartRow(i).getPositions()[0];
+				positions[0] = chart[chartIndex].getState(i).getPositions()[0];
 				positions[1] = row.getPositions()[1];
-				newRow = new ChartRow(chartArray[chartIndex].getChartRow(i).getRule(), positions);
+				newRow = new State(chart[chartIndex].getState(i).getRule(), positions);
 				newRow.addParentState(row.getState());
-				newRow.addParentStates(chartArray[chartIndex].getChartRow(i).getParents());
+				newRow.addParentStates(chart[chartIndex].getState(i).getParents());
 				newRow.setProcess("Completer");
-				newRow.setDot(chartArray[chartIndex].getChartRow(i).getDot() + 1);
+				newRow.setDot(chart[chartIndex].getState(i).getDot() + 1);
 
-				ChartRow iState=row;
-				ChartRow jState=chartArray[chartIndex].getChartRow(i);
+				State iState=row;
+				State jState=chart[chartIndex].getState(i);
 				Double rValue=1.;
-				Rule curRule = chartArray[chartIndex].getChartRow(i).getRule();
+				Rule curRule = chart[chartIndex].getState(i).getRule();
 				if (curRule.size()>1){
 					rValue = this.rMatrix.getTransitiveUnitRelation(curRule.getLHS(), curRule.getLeftmost());
 					rValue = (rValue != 0) ? rValue : 1;
@@ -386,19 +387,19 @@ public class EarleyParser
 	 * @param index
 	 *            the index of the chart
 	 */
-	private void enqueue(ChartRow stateIn, int index, Boolean sumForwardProbabilities, Boolean sumInnerProbabilities)
+	private void enqueue(State stateIn, int index, Boolean sumForwardProbabilities, Boolean sumInnerProbabilities)
 	{
 		if (stateIn.getRule().getHead() == null)
 		{
 			return;
 		}
 
-		if (!chartArray[index].exists(stateIn))
+		if (!chart[index].exists(stateIn))
 		{
 			System.out.println("		%enqueue: entry not found: "+stateIn);
-			chartArray[index].addChartRow(stateIn);
+			chart[index].addState(stateIn);
 		} else {
-			ChartRow stateExisting = chartArray[index].getChartRow(stateIn);
+			State stateExisting = chart[index].getState(stateIn);
 			System.out.println("		%enqueue: entry found: "+stateExisting);
 			if (sumForwardProbabilities == true) {
 				stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
@@ -412,7 +413,7 @@ public class EarleyParser
 		}
 	}
 
-	private void enqueue(ChartRow stateIn, int index)
+	private void enqueue(State stateIn, int index)
 	{
 		enqueue(stateIn, index, false,false);
 	}
@@ -423,10 +424,10 @@ public class EarleyParser
 	@SuppressWarnings("unused")
 	private void printChart()
 	{
-		for (int i = 0; i < chartArray.length; i++)
+		for (int i = 0; i < chart.length; i++)
 		{
-			System.out.println("Chart " + i);
-			System.out.println(chartArray[i].toString());
+			System.out.println("ChartColumn " + i);
+			System.out.println(chart[i].toString());
 		}
 	}
 

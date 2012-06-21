@@ -282,7 +282,7 @@ public class Grammar
         grammar.put(rule.getHead(), rules);
     }
 
-    private void addRuleToInvertedGrammar(PhraseRule rule)
+    private void addRuleToInvertedGrammar(NonterminalRule rule)
     {
         ArrayList<Rule> rules;
         ArrayList<Integer> body = rule.getBody();
@@ -430,10 +430,10 @@ public class Grammar
             body.add(token);
         }
 
-        PhraseRule phraseRule = new PhraseRule(weight, annotation, head, body, this);
-        addRule(phraseRule);
+        NonterminalRule nonterminalRule = new NonterminalRule(weight, annotation, head, body, this);
+        addRule(nonterminalRule);
 
-        addRuleToInvertedGrammar(phraseRule);
+        addRuleToInvertedGrammar(nonterminalRule);
     }
 
     /*private void addRule(String buffer)
@@ -489,7 +489,7 @@ public class Grammar
             body.add(token);
         }
 
-        PhraseRule phraseRule = new PhraseRule(weight, annotation, head, body, this);
+        NonterminalRule phraseRule = new NonterminalRule(weight, annotation, head, body, this);
         addRule(phraseRule);
 
         addRuleToInvertedGrammar(phraseRule);

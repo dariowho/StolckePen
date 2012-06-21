@@ -70,7 +70,7 @@ public class GrammarValidator
 
                 validated.add(rule);
 
-                body = ((PhraseRule) rule).getBody();
+                body = ((NonterminalRule) rule).getBody();
 
                 for (Iterator<Integer> j = body.iterator(); j.hasNext();)
                 {

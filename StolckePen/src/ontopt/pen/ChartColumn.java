@@ -20,18 +20,20 @@ import java.util.ArrayList;
  * @version 1.0
  */
 
-public class Chart
+public class ChartColumn
 {
     /**
      * The chart used for storing previous computations
      */
-    private ArrayList<ChartRow> chart;
+    private ArrayList<State> chart;
 
     /**
-     * A list that all chart rows from all charts share. This list used for constructing the parse tree. The
+     * A list that all chart rows from all charts share. This list is used for constructing the parse tree. The
      * original Earley algorithm is a membership algorithm and not a parsing algorithm.
+     * 
+     * TODO: The role of this variable is not clear, and the name ambiguous: check... 
      */
-    private ArrayList<ChartRow> stateList;
+    private ArrayList<State> stateList;
 
     /**
      * The constructor
@@ -39,10 +41,10 @@ public class Chart
      * @param pStateList
      *            The stateList that is common to all chartrows
      */
-    public Chart(ArrayList<ChartRow> pStateList)
+    public ChartColumn(ArrayList<State> pStateList)
     {
         this.stateList = pStateList;
-        chart = new ArrayList<ChartRow>();
+        chart = new ArrayList<State>();
     }
 
     /**
@@ -51,10 +53,10 @@ public class Chart
      * @param row
      *            The row to add
      */
-    public void addChartRow(ChartRow row)
+    public void addState(State state)
     {
-        row.incState(stateList);
-        chart.add(row);
+        state.incState(stateList);
+        chart.add(state);
     }
 
     /**
@@ -74,16 +76,16 @@ public class Chart
      *            The specified index
      * @return The row
      */
-    public ChartRow getChartRow(int index)
+    public State getState(int index)
     {
-        return (ChartRow) chart.get(index);
+        return (State) chart.get(index);
     }
 
-    public ChartRow getChartRow(ChartRow row)
+    public State getState(State row)
     {
         for (int i = chart.size() - 1; i >= 0; i--)
         {
-            if (((ChartRow) chart.get(i)).equals(row))
+            if (((State) chart.get(i)).equals(row))
             {
                 return chart.get(i);
             }
@@ -95,11 +97,11 @@ public class Chart
     /**
      * Checks if the specified row exists in the chart
      */
-    public boolean exists(ChartRow row)
+    public boolean exists(State row)
     {
         for (int i = chart.size() - 1; i >= 0; i--)
         {
-            if (((ChartRow) chart.get(i)).equals(row))
+            if (((State) chart.get(i)).equals(row))
             {
                 return true;
             }
@@ -129,14 +131,14 @@ public class Chart
      * 
      * @return A list rows
      */
-    public ArrayList<ChartRow> getRoots()
+    public ArrayList<State> getRoots()
     {
-        ChartRow cw;
-        ArrayList<ChartRow> roots = new ArrayList<ChartRow>();
+        State cw;
+        ArrayList<State> roots = new ArrayList<State>();
 
         for (int i = 0; i < chart.size(); i++)
         {
-            cw = (ChartRow) chart.get(i);
+            cw = (State) chart.get(i);
             if (cw.getRule().getHead() != null && cw.getRule().getHead().equals(Grammar.PARSE_ROOT) && cw.isComplete() && cw.getPositions()[0] == 0)
             {
                 roots.add(cw);
