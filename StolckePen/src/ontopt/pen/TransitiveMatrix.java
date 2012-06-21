@@ -2,6 +2,7 @@ package ontopt.pen;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import matrix.Matrix;
@@ -110,6 +111,11 @@ public class TransitiveMatrix {
 			return this.probLCHash.get(lhs).get(rhs);
 		}
 		return 0;
+	}
+	
+	public Set<Entry<String, Double>> getTransitiveLCRelationSet(String lhs){		
+		
+		return this.probLCHash.get(lhs).entrySet();
 	}
 	public double getTransitiveUnitRelation(String lhs, String rhs){
 		if (this.probUnitHash.get(lhs).containsKey(rhs)){
