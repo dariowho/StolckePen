@@ -241,11 +241,10 @@ public class EarleyParser
 			newState.setProcess("Predictor");
 
 			Double rValue = this.rMatrix.getTransitiveLCRelation(curRule.getLHS(), curRule.getLeftmost());
-			System.out.println("Prediction R: " + Double.toString(rValue));
 			rValue = (rValue != 0) ? rValue : 1;
-			System.out.println("Prediction R: " + Double.toString(rValue));
 			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 			newState.setInnerProbability(curRule.getProbability());
+			System.out.println("	%prediction: " + newState);
 			
 			enqueue(newState, positions[0], true, false);
 		}
@@ -280,6 +279,8 @@ public class EarleyParser
 //				newState.setForwardProbability(stateIn.getInnerProbability());				
 //				newState.setInnerProbability(stateIn.getInnerProbability());
 				
+				System.out.println("	%scan: empty terminal after string scanned");
+				
 				// TODO: this might not be needed, check...
 				enqueue(newState, positions[1],false,false);                                
 			}
@@ -297,6 +298,8 @@ public class EarleyParser
 			newState.setProcess("Scanner");
 			newState.setForwardProbability(stateIn.getForwardProbability());				
 			newState.setInnerProbability(stateIn.getInnerProbability());
+			
+			System.out.println("	%scan: "+newState);
 			// FIXME: this might not be needed
 			enqueue(newState, positions[1]);
 		}
@@ -309,6 +312,7 @@ public class EarleyParser
 			newState.setProcess("Scanner");
 			// FIXME: do we have to update probabilities here?
 			// FIXME: the enqueue operation might not be needed (no need of checking for duplicates)
+			System.out.println("	%scan: empty terminal scanned"+newState);
 			enqueue(newState, positions[1]);
 		}
 	}
@@ -354,9 +358,9 @@ public class EarleyParser
 					rValue = this.rMatrix.getTransitiveUnitRelation(curRule.getLHS(), curRule.getLeftmost());
 					rValue = (rValue != 0) ? rValue : 1;
 				}
-				System.out.println("completion R: " + Double.toString(rValue));
 				newRow.setForwardProbability(jState.getForwardProbability()*iState.getInnerProbability()*rValue);
 				newRow.setInnerProbability(jState.getInnerProbability()*iState.getInnerProbability()*rValue);
+				System.out.println("	%completion: " + newRow);
 				
 				enqueue(newRow, row.getPositions()[1], true, true);
 			}
@@ -380,13 +384,18 @@ public class EarleyParser
 
 		if (!chartArray[index].exists(stateIn))
 		{
+			System.out.println("		%enqueue: entry not found: "+stateIn);
 			chartArray[index].addChartRow(stateIn);
-		} else if (sumForwardProbabilities == true) {
+		} else {
 			ChartRow stateExisting = chartArray[index].getChartRow(stateIn);
-			stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
-			if (sumInnerProbabilities){
-				stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
-				
+			System.out.println("		%enqueue: entry found: "+stateExisting);
+			if (sumForwardProbabilities == true) {
+				stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
+				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
+				if (sumInnerProbabilities){
+					stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
+					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
+				}
 			}
 		}
 	}
