@@ -16,7 +16,7 @@ public class TransitiveMatrix {
 	public static TransitiveMatrix getMatrix(Grammar grammar){
 		TransitiveMatrix rMatrix = new TransitiveMatrix();
 
-		List<String> nonTerminalList= new ArrayList(grammar.getNonterminals());
+		ArrayList<String> nonTerminalList= new ArrayList<String>(grammar.getNonterminals());
 		Matrix[] r=probabilisticTransitiveRelation(nonTerminalList, grammar);
 		
     	rMatrix.probTransLCMatrix = computeInverseIdMinusMatrix(r[0], nonTerminalList.size());
