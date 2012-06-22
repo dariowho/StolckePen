@@ -1,6 +1,8 @@
 package ontopt.pen;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <p>
@@ -26,6 +28,12 @@ public class ChartColumn
      * The chart used for storing previous computations
      */
     private ArrayList<State> chart;
+    
+	/**
+	 * Indexes the chart to achieve linear search time for the enqueue() function.
+	 * TODO: still in testing, might not be as effective as expected...
+	 */
+    private Set<State> chartIndex;
 
     /**
      * A list that all chart rows from all charts share. This list is used for constructing the parse tree. The
@@ -34,17 +42,21 @@ public class ChartColumn
      * TODO: The role of this variable is not clear, and the name ambiguous: check... 
      */
     private ArrayList<State> stateList;
-
+    
     /**
      * The constructor
      * 
+     * FIXME: it is not clear what the input state list stands for; originally
+     * the constructor took another parameter (an input list of States)
+     * 
      * @param pStateList
-     *            The stateList that is common to all chartrows
+     *            The stateList that is common to all States
      */
-    public ChartColumn(ArrayList<State> pStateList)
+    public ChartColumn()
     {
-        this.stateList = pStateList;
+        this.stateList = new ArrayList<State>();
         chart = new ArrayList<State>();
+        chartIndex = new HashSet<State>();
     }
 
     /**
@@ -57,6 +69,7 @@ public class ChartColumn
     {
         state.incState(stateList);
         chart.add(state);
+        chartIndex.add(state);
     }
 
     /**
@@ -99,15 +112,7 @@ public class ChartColumn
      */
     public boolean exists(State row)
     {
-        for (int i = chart.size() - 1; i >= 0; i--)
-        {
-            if (((State) chart.get(i)).equals(row))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return this.chartIndex.contains(row);
     }
 
     /**

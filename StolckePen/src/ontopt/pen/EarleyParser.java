@@ -46,7 +46,7 @@ public class EarleyParser
 	 * columns, where n = number of words in sentence.
 	 */
 	private ChartColumn[] chart;
-
+	
 	/**
 	 * Time spent in parsing
 	 */
@@ -85,11 +85,10 @@ public class EarleyParser
 		
 		//long begin = System.currentTimeMillis();
 		chart = new ChartColumn[sentence.getSentenceSize() + 1];
-		ArrayList<State> stateList = new ArrayList<State>();
 	
 		for (int i = 0; i < chart.length; i++)
 		{			
-			chart[i] = new ChartColumn(stateList);
+			chart[i] = new ChartColumn();
 		}
 
 		State curState = new State(dummieRule);
@@ -129,8 +128,8 @@ public class EarleyParser
 			}
 			if(i<sentence.getSentenceSize()){
 				
-//			System.out.println("Prefix Probabilitie:");
-//			System.out.println(Double.toString(sentence.getPrefix(i)));
+			System.out.println("Prefix Probabilitie:");
+			System.out.println(Double.toString(sentence.getPrefix(i)));
 		
 			}
 		}
@@ -238,7 +237,10 @@ public class EarleyParser
 		positions[0] = stateIn.getPositions()[1];
 		positions[1] = positions[0];
 		
+		System.out.println("	%predictor: predicting for: "+curNonterminal);
+		
 		// For each entry in the R matrix which is not zero and has curRoot as a row
+		int debugCount = 1;
 		for (Entry<String,Double> rEntry : this.rMatrix.getTransitiveLCRelationSet(curNonterminal)) {
 			for (Rule curRule : grammar.getAllRulesWithHead(rEntry.getKey())) {
 				
@@ -251,39 +253,13 @@ public class EarleyParser
 				rValue = (rValue != 0) ? rValue : 1;
 				newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 				newState.setInnerProbability(curRule.getProbability());
-				System.out.println("	%prediction: " + newState);
+//				System.out.println("	%prediction: " + newState);
 				
+				if (debugCount%1000 == 0) System.out.println("		%"+debugCount);
+				debugCount++;
 				enqueue(newState, positions[0], true, false);
 			}
 		}
-		
-//		Integer next = stateIn.getNextConstituent();
-//		ArrayList<Rule> list = grammar.getAllRulesWithHead(next);
-//
-//		// System.out.println("LIST: "+list);
-//		// System.out.println("ROW: "+row);
-//
-//		State newState;
-//		int[] positions = new int[2];
-//		positions[0] = stateIn.getPositions()[1];
-//		positions[1] = positions[0];
-//
-//		for (int i = 0; i < list.size(); i++)
-//		{
-//			Rule curRule = list.get(i);
-//			
-//			newState = new State(curRule, positions);
-//			newState.setOriginString("Predictor");
-//
-//			String curNonterminal = this.grammar.getDataType(next);
-//			Double rValue = this.rMatrix.getTransitiveLCRelation(curNonterminal,newState.getRule().getLHS());
-//			rValue = (rValue != 0) ? rValue : 1;
-//			newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
-//			newState.setInnerProbability(curRule.getProbability());
-//			System.out.println("	%prediction: " + newState);
-//			
-//			enqueue(newState, positions[0], true, false);
-//		}
 	}
 
 	/**
@@ -438,19 +414,19 @@ public class EarleyParser
 
 		if (!chart[index].exists(stateIn))
 		{
-			System.out.println("		%enqueue: entry not found: "+stateIn);
+//			System.out.println("		%enqueue: entry not found: "+stateIn);
 			chart[index].addState(stateIn);
 		} else {
 			State stateExisting = chart[index].getState(stateIn);
-			System.out.println("		%enqueue: entry found: "+stateExisting);
+//			System.out.println("		%enqueue: entry found: "+stateExisting);
 			if (sumForwardProbabilities == true) {
 				stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
-				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
+//				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
 			}
 			
 			if (sumInnerProbabilities){
 					stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
-					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
+//					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
 			}
 		}
 	}

@@ -116,6 +116,12 @@ public abstract class Rule
      * @return true if they are equal, false otherwise
      */
     public abstract boolean equals(Rule pRule);
+    
+    @Override
+    public abstract boolean equals(Object o);
+    
+    @Override
+    public abstract int hashCode();
 
     public Double getWeight()
     {

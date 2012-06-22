@@ -26,6 +26,7 @@ public class NonterminalRule extends Rule
      * Represents the body of the rule. e.g. HEAD - B1, B2, ..., Bn Everything to the right of - is the body.
      */
     protected ArrayList<Integer> body;
+    protected Integer head;
 
     /**
      * The Constructor
@@ -122,4 +123,35 @@ public class NonterminalRule extends Rule
 
         return false;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((body == null) ? 0 : body.hashCode());
+		result = prime * result + ((head == null) ? 0 : head.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NonterminalRule other = (NonterminalRule) obj;
+		if (body == null) {
+			if (other.body != null)
+				return false;
+		} else if (!body.equals(other.body))
+			return false;
+		if (head == null) {
+			if (other.head != null)
+				return false;
+		} else if (!head.equals(other.head))
+			return false;
+		return true;
+	}
 }
