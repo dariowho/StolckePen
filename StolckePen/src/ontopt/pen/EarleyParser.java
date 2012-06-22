@@ -130,8 +130,8 @@ public class EarleyParser
 			}
 			if(i<sentence.getSentenceSize()){
 				
-			System.out.println("Prefix Probabilitie:");
-			System.out.println(Double.toString(sentence.getPrefix(i)));
+//			System.out.println("Prefix Probabilitie:");
+//			System.out.println(Double.toString(sentence.getPrefix(i)));
 		
 			}
 		}
