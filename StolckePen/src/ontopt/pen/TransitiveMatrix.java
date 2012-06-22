@@ -7,12 +7,18 @@ import java.util.Set;
 
 import matrix.Matrix;
 
+/**
+ *Class for the Transitive matrix for the Stolcke Early Parser. The unit and left corner matrix are stored as a single object
+ */
 public class TransitiveMatrix {
 	private Matrix probTransLCMatrix;
 	private Matrix probTransUnitMatrix;
 	private HashMap<String, HashMap<String, Double >> probLCHash;
 	private HashMap<String, HashMap<String, Double >> probUnitHash;
 
+    /**
+     * The constructor
+     */
 	public static TransitiveMatrix getMatrix(Grammar grammar){
 		TransitiveMatrix rMatrix = new TransitiveMatrix();
 
@@ -28,7 +34,7 @@ public class TransitiveMatrix {
     	return rMatrix;
 	}
 	/**
-	 * Build matrix for left corner relations.
+	 * Build matrix for left corner and unit relations.
 	 */
 	
 	public static Matrix[] probabilisticTransitiveRelation(List<String> nonTerminals, Grammar grammar) {
@@ -108,24 +114,38 @@ public class TransitiveMatrix {
 			
 		return hash;
 	}
+	/**
+	 * Get double from matrix
+	 * @param lhs
+	 *            left hand of the rule
+	 * @param rhs
+	 *            left most non terminal from the right hand side
+	 */
 	public double getTransitiveLCRelation(String lhs, String rhs){		
 		if (this.probLCHash.get(lhs).containsKey(rhs)){
 			return this.probLCHash.get(lhs).get(rhs);
 		}
 		return 0;
 	}
-	
-	public Set<Entry<String, Double>> getTransitiveLCRelationSet(String lhs){		
+	/**
+	 * Get all possible left corner transitive relation for a nonterminal
+	 */
+	public Set<Entry<String, Double>> getTransitiveLCRelationSet(String nonterminal){		
 		
-		return this.probLCHash.get(lhs).entrySet();
+		return this.probLCHash.get(nonterminal).entrySet();
 	}
+	/**
+	 * Get all possible unit transitive relation for a nonterminal
+	 */
 	public double getTransitiveUnitRelation(String lhs, String rhs){
 		if (this.probUnitHash.get(lhs).containsKey(rhs)){
 			this.probUnitHash.get(lhs).get(rhs);
 		}
 		return 0;
 	}
-	
+	/**
+	 * print left corner matrix
+	 */
 	public void printRMatrix() {
 		for (String lhs : this.probLCHash.keySet()) {
 			System.out.print("["+lhs+"]\n\t");
