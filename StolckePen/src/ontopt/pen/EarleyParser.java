@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javax.management.RuntimeErrorException;
+
 /**
  * <p>
  * Class from PEN Parser.
@@ -65,7 +67,14 @@ public class EarleyParser
 		new GrammarValidator(grammar).validate();
 
 //		System.out.println("Here it would have been printed the matrix..");
-		this.rMatrix = TransitiveMatrix.getMatrix(grammar);
+		try {
+			this.rMatrix = TransitiveMatrix.getMatrix(grammar);
+		}
+		 catch (RuntimeException e) {
+		    System.out.print("Error \nThe P matrix is singular this means that the grammar your using is not proper. \nMeaning it can not produce complete derivations.");
+		    System.exit(1);
+		}
+		
 //		System.out.println(rMatrix.getTransitiveLCRelation("N", "NP"));
 		dummieRule = new NonterminalRule(0., "", null, Grammar.PARSE_ROOT, grammar);
 		
