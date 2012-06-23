@@ -24,7 +24,6 @@ public class TerminalRule extends Rule
      * A string representation of the word associated to the terminal symbol
      */
     private String word;
-
     /**
      * The constructor
      * 
@@ -88,4 +87,35 @@ public class TerminalRule extends Rule
 
         return false;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((head == null) ? 0 : head.hashCode());
+		result = prime * result + ((word == null) ? 0 : word.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TerminalRule other = (TerminalRule) obj;
+		if (head == null) {
+			if (other.head != null)
+				return false;
+		} else if (!head.equals(other.head))
+			return false;
+		if (word == null) {
+			if (other.word != null)
+				return false;
+		} else if (!word.equals(other.word))
+			return false;
+		return true;
+	}
 }
