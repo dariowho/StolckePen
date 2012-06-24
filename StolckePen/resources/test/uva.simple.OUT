@@ -1,0 +1,1215 @@
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null girl - girl [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null girl - girl [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - girl  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+
+
+%%State 2
+	%completion: from scan: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+	%completion: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+	%completion: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+	%prediction: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+	%prediction: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+	%prediction: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+2
+2
+	%scan: null mary - mary [2 3] [] Scanner 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null mary - mary [2 3] [] Scanner 0 {for:0.01125, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null PROPN - mary  [2 3] [45] Completer 1 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 3] [45] Completer 1 {for:0.01125, inn:0.5}
+	%completion: null NP - PROPN  [2 3] [46] Completer 1 {for:0.01125, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [2 3] [46] Completer 1 {for:0.01125, inn:0.25}
+	%completion: null RC - WHO NP  [1 3] [47, 27] Completer 2 {for:0.01125, inn:0.15}
+		%enqueue: entry not found: null RC - WHO NP  [1 3] [47, 27] Completer 2 {for:0.01125, inn:0.15}
+	%completion: null NP - N RC  [0 3] [48, 13] Completer 2 {for:0.01125, inn:0.01125}
+		%enqueue: entry not found: null NP - N RC  [0 3] [48, 13] Completer 2 {for:0.01125, inn:0.01125}
+	%completion: null S - NP VP  [0 3] [49] Completer 1 {for:0.01125, inn:0.01125}
+		%enqueue: entry not found: null S - NP VP  [0 3] [49] Completer 1 {for:0.01125, inn:0.01125}
+	%prediction: null VT - chases  [3 3] [] Predictor 0 {for:0.0016875, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [3 3] [] Predictor 0 {for:0.0016875, inn:0.5}
+	%prediction: null VT - feeds  [3 3] [] Predictor 0 {for:0.0016875, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [3 3] [] Predictor 0 {for:0.0016875, inn:0.5}
+	%prediction: null VP - VI  [3 3] [] Predictor 0 {for:0.007875, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [3 3] [] Predictor 0 {for:0.007875, inn:0.7}
+	%prediction: null VP - VT NP  [3 3] [] Predictor 0 {for:0.003375, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [3 3] [] Predictor 0 {for:0.003375, inn:0.3}
+	%prediction: null VI - walks  [3 3] [] Predictor 0 {for:0.0039375, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [3 3] [] Predictor 0 {for:0.0039375, inn:0.5}
+	%prediction: null VI - lives  [3 3] [] Predictor 0 {for:0.0039375, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [3 3] [] Predictor 0 {for:0.0039375, inn:0.5}
+3
+3
+	%scan: null feeds - feeds [3 4] [] Scanner 0 {for:0.0016875, inn:0.5}
+		%enqueue: entry not found: null feeds - feeds [3 4] [] Scanner 0 {for:0.0016875, inn:0.5}
+
+
+%%State 4
+	%completion: from scan: null VT - feeds  [3 4] [57] Completer 1 {for:0.0016875, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [3 4] [57] Completer 1 {for:0.0016875, inn:0.5}
+	%completion: null VP - VT NP  [3 4] [58] Completer 1 {for:0.0016875, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [3 4] [58] Completer 1 {for:0.0016875, inn:0.15}
+	%prediction: null PROPN - john  [4 4] [] Predictor 0 {for:4.21875E-4, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [4 4] [] Predictor 0 {for:4.21875E-4, inn:0.5}
+	%prediction: null PROPN - mary  [4 4] [] Predictor 0 {for:4.21875E-4, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [4 4] [] Predictor 0 {for:4.21875E-4, inn:0.5}
+	%prediction: null N - boy  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+		%enqueue: entry not found: null N - boy  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+	%prediction: null N - girl  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+		%enqueue: entry not found: null N - girl  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+	%prediction: null N - cat  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+	%prediction: null N - dog  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+		%enqueue: entry not found: null N - dog  [4 4] [] Predictor 0 {for:2.109375E-4, inn:0.25}
+	%prediction: null NP - PROPN  [4 4] [] Predictor 0 {for:8.4375E-4, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [4 4] [] Predictor 0 {for:8.4375E-4, inn:0.5}
+	%prediction: null NP - N  [4 4] [] Predictor 0 {for:3.375E-4, inn:0.2}
+		%enqueue: entry not found: null NP - N  [4 4] [] Predictor 0 {for:3.375E-4, inn:0.2}
+	%prediction: null NP - N RC  [4 4] [] Predictor 0 {for:5.0625E-4, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [4 4] [] Predictor 0 {for:5.0625E-4, inn:0.3}
+
+
+%%State 5
+
+***** Derivations for: 
+girl chases mary 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null girl - girl [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null girl - girl [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - girl  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null chases - chases [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null chases - chases [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+
+
+%%State 2
+	%completion: from scan: null VT - chases  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+	%completion: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+2
+2
+	%scan: null mary - mary [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null mary - mary [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null PROPN - mary  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+	%completion: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+	%completion: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+		%enqueue: entry not found: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+	%completion: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+	%completion: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+	%completion: null  - TOP  [0 3] [43] Completer 1 {for:0.001875, inn:0.001875}
+(TOP (S (NP (N "girl"))(VP (VT "chases")(NP (PROPN "mary")))))
+
+***** Derivations for: 
+dog chases john 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null dog - dog [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null dog - dog [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - dog  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null chases - chases [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null chases - chases [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+
+
+%%State 2
+	%completion: from scan: null VT - chases  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+	%completion: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+2
+2
+	%scan: null john - john [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null john - john [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null PROPN - john  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+	%completion: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+	%completion: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+		%enqueue: entry not found: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+	%completion: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+	%completion: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+	%completion: null  - TOP  [0 3] [43] Completer 1 {for:0.001875, inn:0.001875}
+(TOP (S (NP (N "dog"))(VP (VT "chases")(NP (PROPN "john")))))
+
+***** Derivations for: 
+cat who cat chases lives 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null cat - cat [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null cat - cat [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - cat  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+
+
+%%State 2
+	%completion: from scan: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+	%completion: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+	%completion: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+	%prediction: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+	%prediction: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+	%prediction: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+2
+2
+	%scan: null cat - cat [2 3] [] Scanner 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null cat - cat [2 3] [] Scanner 0 {for:0.005625, inn:0.25}
+
+
+%%State 3
+	%completion: from scan: null N - cat  [2 3] [45] Completer 1 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 3] [45] Completer 1 {for:0.005625, inn:0.25}
+	%completion: null NP - N  [2 3] [46] Completer 1 {for:0.00225, inn:0.05}
+		%enqueue: entry not found: null NP - N  [2 3] [46] Completer 1 {for:0.00225, inn:0.05}
+	%completion: null NP - N RC  [2 3] [46] Completer 1 {for:0.003375, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [2 3] [46] Completer 1 {for:0.003375, inn:0.075}
+	%completion: null RC - WHO NP  [1 3] [47, 27] Completer 2 {for:0.00225, inn:0.03}
+		%enqueue: entry not found: null RC - WHO NP  [1 3] [47, 27] Completer 2 {for:0.00225, inn:0.03}
+	%prediction: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.00135, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.00135, inn:0.4}
+	%prediction: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.002025, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.002025, inn:0.6}
+	%prediction: null WHO - who  [3 3] [] Predictor 0 {for:0.003375, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [3 3] [] Predictor 0 {for:0.003375, inn:1.0}
+	%completion: null NP - N RC  [0 3] [49, 13] Completer 2 {for:0.00225, inn:0.00225}
+		%enqueue: entry not found: null NP - N RC  [0 3] [49, 13] Completer 2 {for:0.00225, inn:0.00225}
+	%completion: null S - NP VP  [0 3] [53] Completer 1 {for:0.00225, inn:0.00225}
+		%enqueue: entry not found: null S - NP VP  [0 3] [53] Completer 1 {for:0.00225, inn:0.00225}
+	%prediction: null VT - chases  [3 3] [] Predictor 0 {for:3.3749999999999996E-4, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [3 3] [] Predictor 0 {for:3.3749999999999996E-4, inn:0.5}
+	%prediction: null VT - feeds  [3 3] [] Predictor 0 {for:3.3749999999999996E-4, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [3 3] [] Predictor 0 {for:3.3749999999999996E-4, inn:0.5}
+	%prediction: null VP - VI  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.7}
+	%prediction: null VP - VT NP  [3 3] [] Predictor 0 {for:6.749999999999999E-4, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [3 3] [] Predictor 0 {for:6.749999999999999E-4, inn:0.3}
+	%prediction: null VI - walks  [3 3] [] Predictor 0 {for:7.874999999999999E-4, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [3 3] [] Predictor 0 {for:7.874999999999999E-4, inn:0.5}
+	%prediction: null VI - lives  [3 3] [] Predictor 0 {for:7.874999999999999E-4, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [3 3] [] Predictor 0 {for:7.874999999999999E-4, inn:0.5}
+3
+3
+	%scan: null chases - chases [3 4] [] Scanner 0 {for:3.3749999999999996E-4, inn:0.5}
+		%enqueue: entry not found: null chases - chases [3 4] [] Scanner 0 {for:3.3749999999999996E-4, inn:0.5}
+
+
+%%State 4
+	%completion: from scan: null VT - chases  [3 4] [61] Completer 1 {for:3.3749999999999996E-4, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [3 4] [61] Completer 1 {for:3.3749999999999996E-4, inn:0.5}
+	%completion: null VP - VT NP  [3 4] [62] Completer 1 {for:3.3749999999999996E-4, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [3 4] [62] Completer 1 {for:3.3749999999999996E-4, inn:0.15}
+	%prediction: null PROPN - john  [4 4] [] Predictor 0 {for:8.437499999999999E-5, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [4 4] [] Predictor 0 {for:8.437499999999999E-5, inn:0.5}
+	%prediction: null PROPN - mary  [4 4] [] Predictor 0 {for:8.437499999999999E-5, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [4 4] [] Predictor 0 {for:8.437499999999999E-5, inn:0.5}
+	%prediction: null N - boy  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+		%enqueue: entry not found: null N - boy  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+	%prediction: null N - girl  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+		%enqueue: entry not found: null N - girl  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+	%prediction: null N - cat  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+		%enqueue: entry not found: null N - cat  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+	%prediction: null N - dog  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+		%enqueue: entry not found: null N - dog  [4 4] [] Predictor 0 {for:4.2187499999999995E-5, inn:0.25}
+	%prediction: null NP - PROPN  [4 4] [] Predictor 0 {for:1.6874999999999998E-4, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [4 4] [] Predictor 0 {for:1.6874999999999998E-4, inn:0.5}
+	%prediction: null NP - N  [4 4] [] Predictor 0 {for:6.75E-5, inn:0.2}
+		%enqueue: entry not found: null NP - N  [4 4] [] Predictor 0 {for:6.75E-5, inn:0.2}
+	%prediction: null NP - N RC  [4 4] [] Predictor 0 {for:1.0124999999999998E-4, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [4 4] [] Predictor 0 {for:1.0124999999999998E-4, inn:0.3}
+
+
+%%State 5
+
+***** Derivations for: 
+john chases dog 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null john - john [0 1] [] Scanner 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null john - john [0 1] [] Scanner 0 {for:0.25, inn:0.5}
+
+
+%%State 1
+	%completion: from scan: null PROPN - john  [0 1] [12] Completer 1 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 1] [12] Completer 1 {for:0.25, inn:0.5}
+	%completion: null NP - PROPN  [0 1] [13] Completer 1 {for:0.25, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [0 1] [13] Completer 1 {for:0.25, inn:0.25}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.25, inn:0.25}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.25, inn:0.25}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.175, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.175, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.075, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.075, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+1
+1
+	%scan: null chases - chases [1 2] [] Scanner 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null chases - chases [1 2] [] Scanner 0 {for:0.0375, inn:0.5}
+
+
+%%State 2
+	%completion: from scan: null VT - chases  [1 2] [22] Completer 1 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 2] [22] Completer 1 {for:0.0375, inn:0.5}
+	%completion: null VP - VT NP  [1 2] [23] Completer 1 {for:0.0375, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [1 2] [23] Completer 1 {for:0.0375, inn:0.15}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.01875, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.01875, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.0075, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.0075, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.01125, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.01125, inn:0.3}
+2
+2
+	%scan: null dog - dog [2 3] [] Scanner 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null dog - dog [2 3] [] Scanner 0 {for:0.0046875, inn:0.25}
+
+
+%%State 3
+	%completion: from scan: null N - dog  [2 3] [34] Completer 1 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 3] [34] Completer 1 {for:0.0046875, inn:0.25}
+	%completion: null NP - N  [2 3] [35] Completer 1 {for:0.001875, inn:0.05}
+		%enqueue: entry not found: null NP - N  [2 3] [35] Completer 1 {for:0.001875, inn:0.05}
+	%completion: null NP - N RC  [2 3] [35] Completer 1 {for:0.0028125, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [2 3] [35] Completer 1 {for:0.0028125, inn:0.075}
+	%completion: null VP - VT NP  [1 3] [36, 23] Completer 2 {for:0.001875, inn:0.0075}
+		%enqueue: entry not found: null VP - VT NP  [1 3] [36, 23] Completer 2 {for:0.001875, inn:0.0075}
+	%prediction: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.001125, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.001125, inn:0.4}
+	%prediction: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.0016875, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.0016875, inn:0.6}
+	%prediction: null WHO - who  [3 3] [] Predictor 0 {for:0.0028125, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [3 3] [] Predictor 0 {for:0.0028125, inn:1.0}
+	%completion: null S - NP VP  [0 3] [38, 14] Completer 2 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null S - NP VP  [0 3] [38, 14] Completer 2 {for:0.001875, inn:0.001875}
+	%completion: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+	%completion: null  - TOP  [0 3] [43] Completer 1 {for:0.001875, inn:0.001875}
+(TOP (S (NP (PROPN "john"))(VP (VT "chases")(NP (N "dog")))))
+
+***** Derivations for: 
+cat who feeds cat lives 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null cat - cat [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null cat - cat [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - cat  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+
+
+%%State 2
+	%completion: from scan: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+	%completion: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+	%completion: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+	%prediction: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+	%prediction: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+	%prediction: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+2
+2
+	%scan: null feeds - feeds [2 3] [] Scanner 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null feeds - feeds [2 3] [] Scanner 0 {for:0.0045, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null VT - feeds  [2 3] [45] Completer 1 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [2 3] [45] Completer 1 {for:0.0045, inn:0.5}
+	%completion: null VP - VT NP  [2 3] [46] Completer 1 {for:0.0045, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [2 3] [46] Completer 1 {for:0.0045, inn:0.15}
+	%prediction: null PROPN - john  [3 3] [] Predictor 0 {for:0.001125, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [3 3] [] Predictor 0 {for:0.001125, inn:0.5}
+	%prediction: null PROPN - mary  [3 3] [] Predictor 0 {for:0.001125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [3 3] [] Predictor 0 {for:0.001125, inn:0.5}
+	%prediction: null N - boy  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null N - boy  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+	%prediction: null N - girl  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null N - girl  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+	%prediction: null N - cat  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+	%prediction: null N - dog  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null N - dog  [3 3] [] Predictor 0 {for:5.625E-4, inn:0.25}
+	%prediction: null NP - PROPN  [3 3] [] Predictor 0 {for:0.00225, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [3 3] [] Predictor 0 {for:0.00225, inn:0.5}
+	%prediction: null NP - N  [3 3] [] Predictor 0 {for:9.0E-4, inn:0.2}
+		%enqueue: entry not found: null NP - N  [3 3] [] Predictor 0 {for:9.0E-4, inn:0.2}
+	%prediction: null NP - N RC  [3 3] [] Predictor 0 {for:0.0013499999999999999, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [3 3] [] Predictor 0 {for:0.0013499999999999999, inn:0.3}
+3
+3
+	%scan: null cat - cat [3 4] [] Scanner 0 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null cat - cat [3 4] [] Scanner 0 {for:5.625E-4, inn:0.25}
+
+
+%%State 4
+	%completion: from scan: null N - cat  [3 4] [57] Completer 1 {for:5.625E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [3 4] [57] Completer 1 {for:5.625E-4, inn:0.25}
+	%completion: null NP - N  [3 4] [58] Completer 1 {for:2.25E-4, inn:0.05}
+		%enqueue: entry not found: null NP - N  [3 4] [58] Completer 1 {for:2.25E-4, inn:0.05}
+	%completion: null NP - N RC  [3 4] [58] Completer 1 {for:3.3749999999999996E-4, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [3 4] [58] Completer 1 {for:3.3749999999999996E-4, inn:0.075}
+	%completion: null VP - VT NP  [2 4] [59, 46] Completer 2 {for:2.25E-4, inn:0.0075}
+		%enqueue: entry not found: null VP - VT NP  [2 4] [59, 46] Completer 2 {for:2.25E-4, inn:0.0075}
+	%prediction: null RC - WHO VP  [4 4] [] Predictor 0 {for:1.35E-4, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [4 4] [] Predictor 0 {for:1.35E-4, inn:0.4}
+	%prediction: null RC - WHO NP  [4 4] [] Predictor 0 {for:2.0249999999999996E-4, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [4 4] [] Predictor 0 {for:2.0249999999999996E-4, inn:0.6}
+	%prediction: null WHO - who  [4 4] [] Predictor 0 {for:3.3749999999999996E-4, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [4 4] [] Predictor 0 {for:3.3749999999999996E-4, inn:1.0}
+	%completion: null RC - WHO VP  [1 4] [61, 27] Completer 2 {for:2.25E-4, inn:0.003}
+		%enqueue: entry not found: null RC - WHO VP  [1 4] [61, 27] Completer 2 {for:2.25E-4, inn:0.003}
+	%completion: null NP - N RC  [0 4] [65, 13] Completer 2 {for:2.25E-4, inn:2.25E-4}
+		%enqueue: entry not found: null NP - N RC  [0 4] [65, 13] Completer 2 {for:2.25E-4, inn:2.25E-4}
+	%completion: null S - NP VP  [0 4] [66] Completer 1 {for:2.25E-4, inn:2.25E-4}
+		%enqueue: entry not found: null S - NP VP  [0 4] [66] Completer 1 {for:2.25E-4, inn:2.25E-4}
+	%prediction: null VT - chases  [4 4] [] Predictor 0 {for:3.375E-5, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [4 4] [] Predictor 0 {for:3.375E-5, inn:0.5}
+	%prediction: null VT - feeds  [4 4] [] Predictor 0 {for:3.375E-5, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [4 4] [] Predictor 0 {for:3.375E-5, inn:0.5}
+	%prediction: null VP - VI  [4 4] [] Predictor 0 {for:1.5749999999999998E-4, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [4 4] [] Predictor 0 {for:1.5749999999999998E-4, inn:0.7}
+	%prediction: null VP - VT NP  [4 4] [] Predictor 0 {for:6.75E-5, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [4 4] [] Predictor 0 {for:6.75E-5, inn:0.3}
+	%prediction: null VI - walks  [4 4] [] Predictor 0 {for:7.874999999999999E-5, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [4 4] [] Predictor 0 {for:7.874999999999999E-5, inn:0.5}
+	%prediction: null VI - lives  [4 4] [] Predictor 0 {for:7.874999999999999E-5, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [4 4] [] Predictor 0 {for:7.874999999999999E-5, inn:0.5}
+4
+4
+	%scan: null lives - lives [4 5] [] Scanner 0 {for:7.874999999999999E-5, inn:0.5}
+		%enqueue: entry not found: null lives - lives [4 5] [] Scanner 0 {for:7.874999999999999E-5, inn:0.5}
+
+
+%%State 5
+	%completion: from scan: null VI - lives  [4 5] [74] Completer 1 {for:7.874999999999999E-5, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [4 5] [74] Completer 1 {for:7.874999999999999E-5, inn:0.5}
+	%completion: null VP - VI  [4 5] [75] Completer 1 {for:7.874999999999999E-5, inn:0.35}
+		%enqueue: entry not found: null VP - VI  [4 5] [75] Completer 1 {for:7.874999999999999E-5, inn:0.35}
+	%completion: null S - NP VP  [0 5] [76, 66] Completer 2 {for:7.874999999999999E-5, inn:7.874999999999999E-5}
+		%enqueue: entry not found: null S - NP VP  [0 5] [76, 66] Completer 2 {for:7.874999999999999E-5, inn:7.874999999999999E-5}
+	%completion: null TOP - S  [0 5] [77] Completer 1 {for:7.874999999999999E-5, inn:7.874999999999999E-5}
+		%enqueue: entry not found: null TOP - S  [0 5] [77] Completer 1 {for:7.874999999999999E-5, inn:7.874999999999999E-5}
+	%completion: null  - TOP  [0 5] [78] Completer 1 {for:7.874999999999999E-5, inn:7.874999999999999E-5}
+(TOP (S (NP (N "cat")(RC (WHO "who")(VP (VT "feeds")(NP (N "cat")))))(VP (VI "lives"))))
+
+***** Derivations for: 
+dog who lives lives 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null dog - dog [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null dog - dog [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - dog  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null who - who [1 2] [] Scanner 0 {for:0.075, inn:1.0}
+
+
+%%State 2
+	%completion: from scan: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 2] [26] Completer 1 {for:0.075, inn:1.0}
+	%completion: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 2] [27] Completer 1 {for:0.03, inn:0.4}
+	%completion: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 2] [27] Completer 1 {for:0.045, inn:0.6}
+	%prediction: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [2 2] [] Predictor 0 {for:0.0045, inn:0.5}
+	%prediction: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [2 2] [] Predictor 0 {for:0.020999999999999998, inn:0.7}
+	%prediction: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [2 2] [] Predictor 0 {for:0.009, inn:0.3}
+	%prediction: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [2 2] [] Predictor 0 {for:0.010499999999999999, inn:0.5}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.01125, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.005625, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.0225, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.009, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.0135, inn:0.3}
+2
+2
+	%scan: null lives - lives [2 3] [] Scanner 0 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null lives - lives [2 3] [] Scanner 0 {for:0.010499999999999999, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null VI - lives  [2 3] [45] Completer 1 {for:0.010499999999999999, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [2 3] [45] Completer 1 {for:0.010499999999999999, inn:0.5}
+	%completion: null VP - VI  [2 3] [46] Completer 1 {for:0.010499999999999999, inn:0.35}
+		%enqueue: entry not found: null VP - VI  [2 3] [46] Completer 1 {for:0.010499999999999999, inn:0.35}
+	%completion: null RC - WHO VP  [1 3] [47, 27] Completer 2 {for:0.010499999999999999, inn:0.13999999999999999}
+		%enqueue: entry not found: null RC - WHO VP  [1 3] [47, 27] Completer 2 {for:0.010499999999999999, inn:0.13999999999999999}
+	%completion: null NP - N RC  [0 3] [48, 13] Completer 2 {for:0.010499999999999999, inn:0.010499999999999999}
+		%enqueue: entry not found: null NP - N RC  [0 3] [48, 13] Completer 2 {for:0.010499999999999999, inn:0.010499999999999999}
+	%completion: null S - NP VP  [0 3] [49] Completer 1 {for:0.010499999999999999, inn:0.010499999999999999}
+		%enqueue: entry not found: null S - NP VP  [0 3] [49] Completer 1 {for:0.010499999999999999, inn:0.010499999999999999}
+	%prediction: null VT - chases  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.5}
+	%prediction: null VT - feeds  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [3 3] [] Predictor 0 {for:0.0015749999999999998, inn:0.5}
+	%prediction: null VP - VI  [3 3] [] Predictor 0 {for:0.007349999999999999, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [3 3] [] Predictor 0 {for:0.007349999999999999, inn:0.7}
+	%prediction: null VP - VT NP  [3 3] [] Predictor 0 {for:0.0031499999999999996, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [3 3] [] Predictor 0 {for:0.0031499999999999996, inn:0.3}
+	%prediction: null VI - walks  [3 3] [] Predictor 0 {for:0.0036749999999999994, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [3 3] [] Predictor 0 {for:0.0036749999999999994, inn:0.5}
+	%prediction: null VI - lives  [3 3] [] Predictor 0 {for:0.0036749999999999994, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [3 3] [] Predictor 0 {for:0.0036749999999999994, inn:0.5}
+3
+3
+	%scan: null lives - lives [3 4] [] Scanner 0 {for:0.0036749999999999994, inn:0.5}
+		%enqueue: entry not found: null lives - lives [3 4] [] Scanner 0 {for:0.0036749999999999994, inn:0.5}
+
+
+%%State 4
+	%completion: from scan: null VI - lives  [3 4] [57] Completer 1 {for:0.0036749999999999994, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [3 4] [57] Completer 1 {for:0.0036749999999999994, inn:0.5}
+	%completion: null VP - VI  [3 4] [58] Completer 1 {for:0.0036749999999999994, inn:0.35}
+		%enqueue: entry not found: null VP - VI  [3 4] [58] Completer 1 {for:0.0036749999999999994, inn:0.35}
+	%completion: null S - NP VP  [0 4] [59, 49] Completer 2 {for:0.0036749999999999994, inn:0.0036749999999999994}
+		%enqueue: entry not found: null S - NP VP  [0 4] [59, 49] Completer 2 {for:0.0036749999999999994, inn:0.0036749999999999994}
+	%completion: null TOP - S  [0 4] [60] Completer 1 {for:0.0036749999999999994, inn:0.0036749999999999994}
+		%enqueue: entry not found: null TOP - S  [0 4] [60] Completer 1 {for:0.0036749999999999994, inn:0.0036749999999999994}
+	%completion: null  - TOP  [0 4] [61] Completer 1 {for:0.0036749999999999994, inn:0.0036749999999999994}
+(TOP (S (NP (N "dog")(RC (WHO "who")(VP (VI "lives"))))(VP (VI "lives"))))
+
+***** Derivations for: 
+boy feeds mary 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null boy - boy [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null boy - boy [0 1] [] Scanner 0 {for:0.125, inn:0.25}
+
+
+%%State 1
+	%completion: from scan: null N - boy  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 1] [12] Completer 1 {for:0.125, inn:0.25}
+	%completion: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null NP - N  [0 1] [13] Completer 1 {for:0.05, inn:0.05}
+	%completion: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [0 1] [13] Completer 1 {for:0.075, inn:0.075}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.05, inn:0.05}
+	%prediction: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [1 1] [] Predictor 0 {for:0.03, inn:0.4}
+	%prediction: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [1 1] [] Predictor 0 {for:0.045, inn:0.6}
+	%prediction: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [1 1] [] Predictor 0 {for:0.075, inn:1.0}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0075, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.034999999999999996, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.015, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.017499999999999998, inn:0.5}
+1
+1
+	%scan: null feeds - feeds [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null feeds - feeds [1 2] [] Scanner 0 {for:0.0075, inn:0.5}
+
+
+%%State 2
+	%completion: from scan: null VT - feeds  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 2] [26] Completer 1 {for:0.0075, inn:0.5}
+	%completion: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [1 2] [27] Completer 1 {for:0.0075, inn:0.15}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.001875, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:9.375E-4, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.00375, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.0015, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.00225, inn:0.3}
+2
+2
+	%scan: null mary - mary [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null mary - mary [2 3] [] Scanner 0 {for:0.001875, inn:0.5}
+
+
+%%State 3
+	%completion: from scan: null PROPN - mary  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 3] [38] Completer 1 {for:0.001875, inn:0.5}
+	%completion: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [2 3] [39] Completer 1 {for:0.001875, inn:0.25}
+	%completion: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+		%enqueue: entry not found: null VP - VT NP  [1 3] [40, 27] Completer 2 {for:0.001875, inn:0.0375}
+	%completion: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null S - NP VP  [0 3] [41, 14] Completer 2 {for:0.001875, inn:0.001875}
+	%completion: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+	%completion: null  - TOP  [0 3] [43] Completer 1 {for:0.001875, inn:0.001875}
+(TOP (S (NP (N "boy"))(VP (VT "feeds")(NP (PROPN "mary")))))
+
+***** Derivations for: 
+john chases cat 
+
+
+
+%%State 0
+	%prediction: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [0 0] [] Predictor 0 {for:0.25, inn:0.5}
+	%prediction: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null S - NP VP  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+		%enqueue: entry not found: null TOP - S  [0 0] [] Predictor 0 {for:1.0, inn:1.0}
+	%prediction: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - boy  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - girl  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - cat  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+		%enqueue: entry not found: null N - dog  [0 0] [] Predictor 0 {for:0.125, inn:0.25}
+	%prediction: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [0 0] [] Predictor 0 {for:0.5, inn:0.5}
+	%prediction: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+		%enqueue: entry not found: null NP - N  [0 0] [] Predictor 0 {for:0.2, inn:0.2}
+	%prediction: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [0 0] [] Predictor 0 {for:0.3, inn:0.3}
+0
+0
+	%scan: null john - john [0 1] [] Scanner 0 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null john - john [0 1] [] Scanner 0 {for:0.25, inn:0.5}
+
+
+%%State 1
+	%completion: from scan: null PROPN - john  [0 1] [12] Completer 1 {for:0.25, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [0 1] [12] Completer 1 {for:0.25, inn:0.5}
+	%completion: null NP - PROPN  [0 1] [13] Completer 1 {for:0.25, inn:0.25}
+		%enqueue: entry not found: null NP - PROPN  [0 1] [13] Completer 1 {for:0.25, inn:0.25}
+	%completion: null S - NP VP  [0 1] [14] Completer 1 {for:0.25, inn:0.25}
+		%enqueue: entry not found: null S - NP VP  [0 1] [14] Completer 1 {for:0.25, inn:0.25}
+	%prediction: null VT - chases  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+	%prediction: null VT - feeds  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - feeds  [1 1] [] Predictor 0 {for:0.0375, inn:0.5}
+	%prediction: null VP - VI  [1 1] [] Predictor 0 {for:0.175, inn:0.7}
+		%enqueue: entry not found: null VP - VI  [1 1] [] Predictor 0 {for:0.175, inn:0.7}
+	%prediction: null VP - VT NP  [1 1] [] Predictor 0 {for:0.075, inn:0.3}
+		%enqueue: entry not found: null VP - VT NP  [1 1] [] Predictor 0 {for:0.075, inn:0.3}
+	%prediction: null VI - walks  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+		%enqueue: entry not found: null VI - walks  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+	%prediction: null VI - lives  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+		%enqueue: entry not found: null VI - lives  [1 1] [] Predictor 0 {for:0.0875, inn:0.5}
+1
+1
+	%scan: null chases - chases [1 2] [] Scanner 0 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null chases - chases [1 2] [] Scanner 0 {for:0.0375, inn:0.5}
+
+
+%%State 2
+	%completion: from scan: null VT - chases  [1 2] [22] Completer 1 {for:0.0375, inn:0.5}
+		%enqueue: entry not found: null VT - chases  [1 2] [22] Completer 1 {for:0.0375, inn:0.5}
+	%completion: null VP - VT NP  [1 2] [23] Completer 1 {for:0.0375, inn:0.15}
+		%enqueue: entry not found: null VP - VT NP  [1 2] [23] Completer 1 {for:0.0375, inn:0.15}
+	%prediction: null PROPN - john  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+		%enqueue: entry not found: null PROPN - john  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+	%prediction: null PROPN - mary  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+		%enqueue: entry not found: null PROPN - mary  [2 2] [] Predictor 0 {for:0.009375, inn:0.5}
+	%prediction: null N - boy  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - boy  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - girl  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - girl  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - cat  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null N - dog  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - dog  [2 2] [] Predictor 0 {for:0.0046875, inn:0.25}
+	%prediction: null NP - PROPN  [2 2] [] Predictor 0 {for:0.01875, inn:0.5}
+		%enqueue: entry not found: null NP - PROPN  [2 2] [] Predictor 0 {for:0.01875, inn:0.5}
+	%prediction: null NP - N  [2 2] [] Predictor 0 {for:0.0075, inn:0.2}
+		%enqueue: entry not found: null NP - N  [2 2] [] Predictor 0 {for:0.0075, inn:0.2}
+	%prediction: null NP - N RC  [2 2] [] Predictor 0 {for:0.01125, inn:0.3}
+		%enqueue: entry not found: null NP - N RC  [2 2] [] Predictor 0 {for:0.01125, inn:0.3}
+2
+2
+	%scan: null cat - cat [2 3] [] Scanner 0 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null cat - cat [2 3] [] Scanner 0 {for:0.0046875, inn:0.25}
+
+
+%%State 3
+	%completion: from scan: null N - cat  [2 3] [34] Completer 1 {for:0.0046875, inn:0.25}
+		%enqueue: entry not found: null N - cat  [2 3] [34] Completer 1 {for:0.0046875, inn:0.25}
+	%completion: null NP - N  [2 3] [35] Completer 1 {for:0.001875, inn:0.05}
+		%enqueue: entry not found: null NP - N  [2 3] [35] Completer 1 {for:0.001875, inn:0.05}
+	%completion: null NP - N RC  [2 3] [35] Completer 1 {for:0.0028125, inn:0.075}
+		%enqueue: entry not found: null NP - N RC  [2 3] [35] Completer 1 {for:0.0028125, inn:0.075}
+	%completion: null VP - VT NP  [1 3] [36, 23] Completer 2 {for:0.001875, inn:0.0075}
+		%enqueue: entry not found: null VP - VT NP  [1 3] [36, 23] Completer 2 {for:0.001875, inn:0.0075}
+	%prediction: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.001125, inn:0.4}
+		%enqueue: entry not found: null RC - WHO VP  [3 3] [] Predictor 0 {for:0.001125, inn:0.4}
+	%prediction: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.0016875, inn:0.6}
+		%enqueue: entry not found: null RC - WHO NP  [3 3] [] Predictor 0 {for:0.0016875, inn:0.6}
+	%prediction: null WHO - who  [3 3] [] Predictor 0 {for:0.0028125, inn:1.0}
+		%enqueue: entry not found: null WHO - who  [3 3] [] Predictor 0 {for:0.0028125, inn:1.0}
+	%completion: null S - NP VP  [0 3] [38, 14] Completer 2 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null S - NP VP  [0 3] [38, 14] Completer 2 {for:0.001875, inn:0.001875}
+	%completion: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+		%enqueue: entry not found: null TOP - S  [0 3] [42] Completer 1 {for:0.001875, inn:0.001875}
+	%completion: null  - TOP  [0 3] [43] Completer 1 {for:0.001875, inn:0.001875}
+(TOP (S (NP (PROPN "john"))(VP (VT "chases")(NP (N "cat")))))

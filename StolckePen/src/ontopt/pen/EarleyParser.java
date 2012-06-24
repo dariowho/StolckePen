@@ -260,7 +260,7 @@ public class EarleyParser
 				rValue = (rValue != 0) ? rValue : 1;
 				newState.setForwardProbability(stateIn.getForwardProbability()*rValue*curRule.getProbability());
 				newState.setInnerProbability(curRule.getProbability());
-				System.out.println("	%prediction: " + newState);
+//				System.out.println("	%prediction: " + newState);
 				
 				enqueue(newState, positions[0], true, false);
 			}
@@ -447,19 +447,19 @@ public class EarleyParser
 
 		if (!chart[index].exists(stateIn))
 		{
-			System.out.println("		%enqueue: entry not found: "+stateIn);
+//			System.out.println("		%enqueue: entry not found: "+stateIn);
 			chart[index].addState(stateIn);
 		} else {
 			State stateExisting = chart[index].getState(stateIn);
-			System.out.println("		%enqueue: entry found: "+stateExisting);
+//			System.out.println("		%enqueue: entry found: "+stateExisting);
 			if (sumForwardProbabilities == true) {
 				stateExisting.setForwardProbability(stateExisting.getForwardProbability() + stateIn.getForwardProbability());
-				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
+//				System.out.println("		%enqueue: adding forward: "+stateExisting.getForwardProbability());
 			}
 			
 			if (sumInnerProbabilities){
 					stateExisting.setInnerProbability(stateExisting.getInnerProbability() + stateIn.getInnerProbability());
-					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
+//					System.out.println("		%enqueue: adding inner: "+stateExisting.getForwardProbability());
 			}
 		}
 	}

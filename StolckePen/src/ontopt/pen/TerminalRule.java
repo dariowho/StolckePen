@@ -79,13 +79,45 @@ public class TerminalRule extends Rule
      *            The rule to check
      * @return true if they are equal, false otherwise
      */
-    public boolean equals(Rule pRule)
-    {
-        if (pRule instanceof TerminalRule)
-        {
-            return (this.head.equals(pRule.head) && this.word.equals(((TerminalRule) pRule).word));
-        }
+//    public boolean equals(Rule pRule)
+//    {
+//        if (pRule instanceof TerminalRule)
+//        {
+//            return (this.head.equals(pRule.head) && this.word.equals(((TerminalRule) pRule).word));
+//        }
+//
+//        return false;
+//    }
+//
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((head == null) ? 0 : head.hashCode());
+		result = prime * result + ((word == null) ? 0 : word.hashCode());
+		return result;
+	}
 
-        return false;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TerminalRule other = (TerminalRule) obj;
+		if (head == null) {
+			if (other.head != null)
+				return false;
+		} else if (!head.equals(other.head))
+			return false;
+		if (word == null) {
+			if (other.word != null)
+				return false;
+		} else if (!word.equals(other.word))
+			return false;
+		return true;
+	}
+    
 }

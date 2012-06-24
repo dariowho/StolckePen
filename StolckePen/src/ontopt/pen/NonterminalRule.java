@@ -27,6 +27,7 @@ public class NonterminalRule extends Rule
      */
     protected ArrayList<Integer> body;
 
+
     /**
      * The Constructor
      * 
@@ -106,6 +107,37 @@ public class NonterminalRule extends Rule
         return s;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((body == null) ? 0 : body.hashCode());
+		result = prime * result + ((head == null) ? 0 : head.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NonterminalRule other = (NonterminalRule) obj;
+		if (body == null) {
+			if (other.body != null)
+				return false;
+		} else if (!body.equals(other.body))
+			return false;
+		if (head == null) {
+			if (other.head != null)
+				return false;
+		} else if (!head.equals(other.head))
+			return false;
+		return true;
+	}
+
     /**
      * Checks if this rule is equal to another.
      * 
@@ -113,13 +145,14 @@ public class NonterminalRule extends Rule
      *            The other rule
      * @return true if they are equal, false otherwise
      */
-    public boolean equals(Rule pRule)
-    {
-        if (pRule instanceof NonterminalRule && this.head != null)
-        {
-            return (this.head.equals(pRule.head) && this.body.equals(((NonterminalRule) pRule).body));
-        }
-
-        return false;
-    }
+//    public boolean equals(Rule pRule)
+//    {
+//        if (pRule instanceof NonterminalRule && this.head != null)
+//        {
+//            return (this.head.equals(pRule.head) && this.body.equals(((NonterminalRule) pRule).body));
+//        }
+//
+//        return false;
+//    }
+    
 }

@@ -1,0 +1,111 @@
+ 0.7
+
+ 3.3333333333
+
+TOP
+
+ 1.0000000000
+
+TOP
+
+***** Derivations for: 
+a a a
+
+
+
+%%State 0
+	%prediction: null TOP - TOP TOP  [0 0] [] Predictor 0 {for:2.333333333333333, inn:0.7}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 0] [] Predictor 0 {for:2.333333333333333, inn:0.7}
+	%prediction: null TOP - a  [0 0] [] Predictor 0 {for:0.9999999999999999, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [0 0] [] Predictor 0 {for:0.9999999999999999, inn:0.3}
+0
+0
+	%scan: null a - a [0 1] [] Scanner 0 {for:0.9999999999999999, inn:0.3}
+		%enqueue: entry not found: null a - a [0 1] [] Scanner 0 {for:0.9999999999999999, inn:0.3}
+
+
+%%State 1
+	%completion: from scan: null TOP - a  [0 1] [3] Completer 1 {for:0.9999999999999999, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [0 1] [3] Completer 1 {for:0.9999999999999999, inn:0.3}
+	%completion: null  - TOP  [0 1] [4] Completer 1 {for:0.3, inn:0.3}
+	%completion: null TOP - TOP TOP  [0 1] [4] Completer 1 {for:0.6999999999999998, inn:0.21}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 1] [4] Completer 1 {for:0.6999999999999998, inn:0.21}
+	%prediction: null TOP - TOP TOP  [1 1] [] Predictor 0 {for:1.6333333333333326, inn:0.7}
+		%enqueue: entry not found: null TOP - TOP TOP  [1 1] [] Predictor 0 {for:1.6333333333333326, inn:0.7}
+	%prediction: null TOP - a  [1 1] [] Predictor 0 {for:0.6999999999999997, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [1 1] [] Predictor 0 {for:0.6999999999999997, inn:0.3}
+1
+1
+	%scan: null a - a [1 2] [] Scanner 0 {for:0.6999999999999997, inn:0.3}
+		%enqueue: entry not found: null a - a [1 2] [] Scanner 0 {for:0.6999999999999997, inn:0.3}
+
+
+%%State 2
+	%completion: from scan: null TOP - a  [1 2] [8] Completer 1 {for:0.6999999999999997, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [1 2] [8] Completer 1 {for:0.6999999999999997, inn:0.3}
+	%completion: null TOP - TOP TOP  [0 2] [9, 4] Completer 2 {for:0.20999999999999994, inn:0.063}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 2] [9, 4] Completer 2 {for:0.20999999999999994, inn:0.063}
+	%completion: null TOP - TOP TOP  [1 2] [9] Completer 1 {for:0.48999999999999977, inn:0.21}
+		%enqueue: entry not found: null TOP - TOP TOP  [1 2] [9] Completer 1 {for:0.48999999999999977, inn:0.21}
+	%completion: null  - TOP  [0 2] [10] Completer 1 {for:0.063, inn:0.063}
+	%completion: null TOP - TOP TOP  [0 2] [10] Completer 1 {for:0.147, inn:0.0441}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 2] [10] Completer 1 {for:0.147, inn:0.0441}
+	%prediction: null TOP - TOP TOP  [2 2] [] Predictor 0 {for:1.1433333333333326, inn:0.7}
+		%enqueue: entry not found: null TOP - TOP TOP  [2 2] [] Predictor 0 {for:1.1433333333333326, inn:0.7}
+	%prediction: null TOP - a  [2 2] [] Predictor 0 {for:0.4899999999999997, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [2 2] [] Predictor 0 {for:0.4899999999999997, inn:0.3}
+	%prediction: null TOP - TOP TOP  [2 2] [] Predictor 0 {for:0.3429999999999999, inn:0.7}
+		%enqueue: entry found: 13 TOP - TOP TOP  [2 2] [] Predictor 0 {for:1.1433333333333326, inn:0.7}
+		%enqueue: adding forward: 1.4863333333333326
+	%prediction: null TOP - a  [2 2] [] Predictor 0 {for:0.14699999999999996, inn:0.3}
+		%enqueue: entry found: 14 TOP - a  [2 2] [] Predictor 0 {for:0.4899999999999997, inn:0.3}
+		%enqueue: adding forward: 0.6369999999999997
+2
+2
+	%scan: null a - a [2 3] [] Scanner 0 {for:0.6369999999999997, inn:0.3}
+		%enqueue: entry not found: null a - a [2 3] [] Scanner 0 {for:0.6369999999999997, inn:0.3}
+
+
+%%State 3
+	%completion: from scan: null TOP - a  [2 3] [15] Completer 1 {for:0.6369999999999997, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [2 3] [15] Completer 1 {for:0.6369999999999997, inn:0.3}
+	%completion: null TOP - TOP TOP  [1 3] [16, 9] Completer 2 {for:0.14699999999999994, inn:0.063}
+		%enqueue: entry not found: null TOP - TOP TOP  [1 3] [16, 9] Completer 2 {for:0.14699999999999994, inn:0.063}
+	%completion: null TOP - TOP TOP  [0 3] [16, 10] Completer 2 {for:0.04409999999999999, inn:0.01323}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 3] [16, 10] Completer 2 {for:0.04409999999999999, inn:0.01323}
+	%completion: null TOP - TOP TOP  [2 3] [16] Completer 1 {for:0.4458999999999998, inn:0.21}
+		%enqueue: entry not found: null TOP - TOP TOP  [2 3] [16] Completer 1 {for:0.4458999999999998, inn:0.21}
+	%completion: null TOP - TOP TOP  [0 3] [17, 4] Completer 2 {for:0.04409999999999999, inn:0.01323}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 3] [17, 4] Completer 2 {for:0.04409999999999999, inn:0.01323}
+	%completion: null TOP - TOP TOP  [1 3] [17] Completer 1 {for:0.10289999999999996, inn:0.0441}
+		%enqueue: entry not found: null TOP - TOP TOP  [1 3] [17] Completer 1 {for:0.10289999999999996, inn:0.0441}
+	%completion: null  - TOP  [0 3] [18] Completer 1 {for:0.01323, inn:0.01323}
+	%completion: null TOP - TOP TOP  [0 3] [18] Completer 1 {for:0.030869999999999998, inn:0.009261}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 3] [18] Completer 1 {for:0.030869999999999998, inn:0.009261}
+	%prediction: null TOP - TOP TOP  [3 3] [] Predictor 0 {for:1.0404333333333329, inn:0.7}
+		%enqueue: entry not found: null TOP - TOP TOP  [3 3] [] Predictor 0 {for:1.0404333333333329, inn:0.7}
+	%prediction: null TOP - a  [3 3] [] Predictor 0 {for:0.4458999999999998, inn:0.3}
+		%enqueue: entry not found: null TOP - a  [3 3] [] Predictor 0 {for:0.4458999999999998, inn:0.3}
+	%completion: null  - TOP  [0 3] [20] Completer 1 {for:0.01323, inn:0.01323}
+	%completion: null TOP - TOP TOP  [0 3] [20] Completer 1 {for:0.030869999999999998, inn:0.009261}
+		%enqueue: entry not found: null TOP - TOP TOP  [0 3] [20] Completer 1 {for:0.030869999999999998, inn:0.009261}
+	%prediction: null TOP - TOP TOP  [3 3] [] Predictor 0 {for:0.2400999999999999, inn:0.7}
+		%enqueue: entry found: 23 TOP - TOP TOP  [3 3] [] Predictor 0 {for:1.0404333333333329, inn:0.7}
+		%enqueue: adding forward: 1.2805333333333329
+	%prediction: null TOP - a  [3 3] [] Predictor 0 {for:0.10289999999999995, inn:0.3}
+		%enqueue: entry found: 24 TOP - a  [3 3] [] Predictor 0 {for:0.4458999999999998, inn:0.3}
+		%enqueue: adding forward: 0.5487999999999997
+	%prediction: null TOP - TOP TOP  [3 3] [] Predictor 0 {for:0.07202999999999998, inn:0.7}
+		%enqueue: entry found: 23 TOP - TOP TOP  [3 3] [] Predictor 0 {for:1.2805333333333329, inn:0.7}
+		%enqueue: adding forward: 1.352563333333333
+	%prediction: null TOP - a  [3 3] [] Predictor 0 {for:0.030869999999999995, inn:0.3}
+		%enqueue: entry found: 24 TOP - a  [3 3] [] Predictor 0 {for:0.5487999999999997, inn:0.3}
+		%enqueue: adding forward: 0.5796699999999997
+	%prediction: null TOP - TOP TOP  [3 3] [] Predictor 0 {for:0.07202999999999998, inn:0.7}
+		%enqueue: entry found: 23 TOP - TOP TOP  [3 3] [] Predictor 0 {for:1.352563333333333, inn:0.7}
+		%enqueue: adding forward: 1.424593333333333
+	%prediction: null TOP - a  [3 3] [] Predictor 0 {for:0.030869999999999995, inn:0.3}
+		%enqueue: entry found: 24 TOP - a  [3 3] [] Predictor 0 {for:0.5796699999999997, inn:0.3}
+		%enqueue: adding forward: 0.6105399999999996
+(TOP (TOP (TOP "a")(TOP "a"))(TOP "a"))
+(TOP (TOP "a")(TOP (TOP "a")(TOP "a")))

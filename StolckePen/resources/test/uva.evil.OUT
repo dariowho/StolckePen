@@ -1,0 +1,97 @@
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.2 0.0 0.8
+
+ 1.0000000000 0.0000000000 0.0000000000
+ 0.0000000000 1.0000000000 0.0000000000
+ 1.0000000000 0.0000000000 5.0000000000
+
+A
+B
+A
+TOP
+
+ 1.0000000000 0.0000000000 0.0000000000
+ 0.0000000000 1.0000000000 0.0000000000
+ 0.2000000000 0.0000000000 1.0000000000
+
+A
+B
+A
+TOP
+
+***** Derivations for: 
+x y x
+
+
+
+%%State 0
+	%prediction: null A - x  [0 0] [] Predictor 0 {for:1.0000000000000002, inn:1.0}
+		%enqueue: entry not found: null A - x  [0 0] [] Predictor 0 {for:1.0000000000000002, inn:1.0}
+	%prediction: null TOP - TOP A  [0 0] [] Predictor 0 {for:2.5000000000000004, inn:0.5}
+		%enqueue: entry not found: null TOP - TOP A  [0 0] [] Predictor 0 {for:2.5000000000000004, inn:0.5}
+	%prediction: null TOP - TOP B  [0 0] [] Predictor 0 {for:1.5000000000000002, inn:0.3}
+		%enqueue: entry not found: null TOP - TOP B  [0 0] [] Predictor 0 {for:1.5000000000000002, inn:0.3}
+	%prediction: null TOP - A  [0 0] [] Predictor 0 {for:1.0000000000000002, inn:0.2}
+		%enqueue: entry not found: null TOP - A  [0 0] [] Predictor 0 {for:1.0000000000000002, inn:0.2}
+0
+0
+	%scan: null x - x [0 1] [] Scanner 0 {for:1.0000000000000002, inn:1.0}
+		%enqueue: entry not found: null x - x [0 1] [] Scanner 0 {for:1.0000000000000002, inn:1.0}
+
+
+%%State 1
+	%completion: from scan: null A - x  [0 1] [5] Completer 1 {for:1.0000000000000002, inn:1.0}
+		%enqueue: entry not found: null A - x  [0 1] [5] Completer 1 {for:1.0000000000000002, inn:1.0}
+	%completion: null TOP - A  [0 1] [6] Completer 1 {for:1.0000000000000002, inn:0.2}
+		%enqueue: entry not found: null TOP - A  [0 1] [6] Completer 1 {for:1.0000000000000002, inn:0.2}
+	%completion: null  - TOP  [0 1] [7] Completer 1 {for:0.2, inn:0.2}
+	%completion: null TOP - TOP A  [0 1] [7] Completer 1 {for:0.5000000000000001, inn:0.1}
+		%enqueue: entry not found: null TOP - TOP A  [0 1] [7] Completer 1 {for:0.5000000000000001, inn:0.1}
+	%completion: null TOP - TOP B  [0 1] [7] Completer 1 {for:0.30000000000000004, inn:0.06}
+		%enqueue: entry not found: null TOP - TOP B  [0 1] [7] Completer 1 {for:0.30000000000000004, inn:0.06}
+	%prediction: null A - x  [1 1] [] Predictor 0 {for:0.5000000000000001, inn:1.0}
+		%enqueue: entry not found: null A - x  [1 1] [] Predictor 0 {for:0.5000000000000001, inn:1.0}
+	%prediction: null B - y  [1 1] [] Predictor 0 {for:0.30000000000000004, inn:1.0}
+		%enqueue: entry not found: null B - y  [1 1] [] Predictor 0 {for:0.30000000000000004, inn:1.0}
+1
+1
+	%scan: null y - y [1 2] [] Scanner 0 {for:0.30000000000000004, inn:1.0}
+		%enqueue: entry not found: null y - y [1 2] [] Scanner 0 {for:0.30000000000000004, inn:1.0}
+
+
+%%State 2
+	%completion: from scan: null B - y  [1 2] [12] Completer 1 {for:0.30000000000000004, inn:1.0}
+		%enqueue: entry not found: null B - y  [1 2] [12] Completer 1 {for:0.30000000000000004, inn:1.0}
+	%completion: null TOP - TOP B  [0 2] [13, 7] Completer 2 {for:0.30000000000000004, inn:0.06}
+		%enqueue: entry not found: null TOP - TOP B  [0 2] [13, 7] Completer 2 {for:0.30000000000000004, inn:0.06}
+	%completion: null  - TOP  [0 2] [14] Completer 1 {for:0.06, inn:0.06}
+	%completion: null TOP - TOP A  [0 2] [14] Completer 1 {for:0.15000000000000002, inn:0.03}
+		%enqueue: entry not found: null TOP - TOP A  [0 2] [14] Completer 1 {for:0.15000000000000002, inn:0.03}
+	%completion: null TOP - TOP B  [0 2] [14] Completer 1 {for:0.09000000000000001, inn:0.018}
+		%enqueue: entry not found: null TOP - TOP B  [0 2] [14] Completer 1 {for:0.09000000000000001, inn:0.018}
+	%prediction: null A - x  [2 2] [] Predictor 0 {for:0.15000000000000002, inn:1.0}
+		%enqueue: entry not found: null A - x  [2 2] [] Predictor 0 {for:0.15000000000000002, inn:1.0}
+	%prediction: null B - y  [2 2] [] Predictor 0 {for:0.09000000000000001, inn:1.0}
+		%enqueue: entry not found: null B - y  [2 2] [] Predictor 0 {for:0.09000000000000001, inn:1.0}
+2
+2
+	%scan: null x - x [2 3] [] Scanner 0 {for:0.15000000000000002, inn:1.0}
+		%enqueue: entry not found: null x - x [2 3] [] Scanner 0 {for:0.15000000000000002, inn:1.0}
+
+
+%%State 3
+	%completion: from scan: null A - x  [2 3] [19] Completer 1 {for:0.15000000000000002, inn:1.0}
+		%enqueue: entry not found: null A - x  [2 3] [19] Completer 1 {for:0.15000000000000002, inn:1.0}
+	%completion: null TOP - TOP A  [0 3] [20, 14] Completer 2 {for:0.15000000000000002, inn:0.03}
+		%enqueue: entry not found: null TOP - TOP A  [0 3] [20, 14] Completer 2 {for:0.15000000000000002, inn:0.03}
+	%completion: null  - TOP  [0 3] [21] Completer 1 {for:0.03, inn:0.03}
+	%completion: null TOP - TOP A  [0 3] [21] Completer 1 {for:0.07500000000000001, inn:0.015}
+		%enqueue: entry not found: null TOP - TOP A  [0 3] [21] Completer 1 {for:0.07500000000000001, inn:0.015}
+	%completion: null TOP - TOP B  [0 3] [21] Completer 1 {for:0.045000000000000005, inn:0.009}
+		%enqueue: entry not found: null TOP - TOP B  [0 3] [21] Completer 1 {for:0.045000000000000005, inn:0.009}
+	%prediction: null A - x  [3 3] [] Predictor 0 {for:0.07500000000000001, inn:1.0}
+		%enqueue: entry not found: null A - x  [3 3] [] Predictor 0 {for:0.07500000000000001, inn:1.0}
+	%prediction: null B - y  [3 3] [] Predictor 0 {for:0.045000000000000005, inn:1.0}
+		%enqueue: entry not found: null B - y  [3 3] [] Predictor 0 {for:0.045000000000000005, inn:1.0}
+(TOP (TOP (TOP (A "x"))(B "y"))(A "x"))

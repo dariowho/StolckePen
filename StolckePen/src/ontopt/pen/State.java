@@ -1,6 +1,7 @@
 package ontopt.pen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * <p>
@@ -324,12 +325,47 @@ public class State
      *            The row to compare to
      * @return true if they are equal, false otherwise
      */
-    public boolean equals(State row)
-    {
-        return (row.rule.equals(this.rule) && row.positions[0] == this.positions[0] && row.positions[1] == this.positions[1] && this.getParents().equals(row.getParents()));
-    }
+//    public boolean equals(State row)
+//    {
+//        return (row.rule.equals(this.rule) && row.positions[0] == this.positions[0] && row.positions[1] == this.positions[1] && this.getParents().equals(row.getParents()));
+//    }
+//
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+//		result = prime * result + ((parents == null) ? 0 : parents.hashCode());
+		result = prime * result + Arrays.hashCode(positions);
+		result = prime * result + ((rule == null) ? 0 : rule.hashCode());
+		return result;
+	}
 
-    /**
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		State other = (State) obj;
+		if (parents == null) {
+			if (other.parents != null)
+				return false;
+		} else if (!parents.equals(other.parents))
+			return false;
+		if (!Arrays.equals(positions, other.positions))
+			return false;
+		if (rule == null) {
+			if (other.rule != null)
+				return false;
+		} else if (!rule.equals(other.rule))
+			return false;
+		return true;
+	}
+
+	/**
      * gets the string representation of this row.
      * 
      * @return The string representation.
