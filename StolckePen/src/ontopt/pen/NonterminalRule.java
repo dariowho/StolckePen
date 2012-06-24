@@ -90,7 +90,12 @@ public class NonterminalRule extends Rule
     }
     
     public boolean isUnary() {
-    	return (this.size() == 1) ? true : false;
+    	if (this.size() != 1) return false;
+    	
+    	if (this.grammar.isTerminal(this.body.get(0))) return false;
+    	
+		System.out.println("		%isUnary: "+this.toString());
+    	return true;
     }
     
     /**

@@ -133,6 +133,7 @@ public class EarleyParser
 				else
 				{
 					if (! curState.getRule().isUnary()) completer(curState);
+					else System.out.println("	%completion: skipped: "+curState);
 				}
 				
 			}

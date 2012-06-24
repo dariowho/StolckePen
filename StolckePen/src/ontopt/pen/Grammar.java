@@ -150,7 +150,9 @@ public class Grammar
     }
     
     /**
-     * Transforms an Integer ID in the corresponding String representation.
+     * Transforms an Integer ID of a symbol into its corresponding String representation.
+     * 
+     * TODO: this code is awful: it has to be changed to a more intelligent representation!
      * 
      * @param token
      *            The Integer to transform
@@ -196,6 +198,22 @@ public class Grammar
         return null;
     }
 
+    public boolean isTerminal(Integer symbolCodeIn) {
+        Iterator<String> it = terminals.keySet().iterator();
+
+        while (it.hasNext())
+        {
+            String s = (String) it.next();
+            Integer id = (Integer) terminals.get(s);
+            if (id.equals(symbolCodeIn))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
     /**
      * Get all rules that begin with the specified Head. A simple lookup in the hashtable.
      * 
