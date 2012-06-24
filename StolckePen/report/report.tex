@@ -19,11 +19,34 @@
 
 
 \section{Introduction}
+Language models are widely used in computational linguistics. They can assign a probability to any given string of words that represents the likelihood that the given string belongs to a specific language.  Most language are based on n-grams. Meaning the likelihood of a string is based on how often the words in the string occurred together before. These n-grams models are flexible computational inexpensive and they require unannotated text for training.But from a linguistic stand point they are naive in that they don't take the structure of the sentence into account. Language models that take the structure of a sentence into account are called syntactic based. In this paper we will examine the possibility of using PCFGs as a language model.
 
+\section{PCFG}
+\subsection{Parser as Language Models}
+The basic concept for using a PCFG as a language model is to parse a string and based on the found derivations a likelihood is determined. A standard parser can be used to determine the likelihood of whole sentences. This is done by summing the probabilities of all possible derivations.  In figure \ref{fig:22} we plotted the scores of the Berkeley parser and DDOP on the Wall Street Journal against the likelihood they give to section 22 of the Wall Street Journal treebank.  As you can see the probabilities are very low compared to the n-gram model. It's important to note that the probability assigned by parsers are very different in the way they are the determined therefore is not possible to compare them based on the probabilities they assign. For comparison we have to look at actual performance.
 
+\begin{figure}
+  \centering   
+  \includegraphics[scale=0.5]{LM22.jpg}
+  \caption{Performance parser as LM on section 22 of WSJ penn Treebank}
+ \label{fig:22}
+\end{figure}
+
+\subsection{Earley Stolcke Parser}
+We cannot use a standard parser that uses a CKY algorithm because this would limit the language model to only full sentences. The parser we therefore used is the probabilistic early parser from Andreas Stoclke \cite{stolcke}. The Early parser is a top-down left to right parser.
 
 \section{Experimental setup}
 
+\begin{thebibliography}{2}
+\bibitem{stolcke}
+Stolcke (1995), An Earley-style Probabilistic Parser that computes Prefix Probabilities.
+\end{thebibliography}
 
 \end{document}
+ 
+
+
+\end{document}
+ 
+
  
