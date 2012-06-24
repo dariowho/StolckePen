@@ -105,6 +105,8 @@ public abstract class Rule
     
     public abstract Integer size();
     
+    public abstract boolean isUnary();
+    
     public abstract String getLeftmost();
 
     /**

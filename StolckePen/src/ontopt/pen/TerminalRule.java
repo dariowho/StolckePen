@@ -59,6 +59,11 @@ public class TerminalRule extends Rule
     	return 1;
     }
     
+    public boolean isUnary() {
+    	// False, because a unary is defined as X→Y, where X and Y are nonterminals.
+    	return false;
+    }
+    
     /**
      * Gets a string representation of this rule
      * 

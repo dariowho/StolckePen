@@ -132,7 +132,7 @@ public class EarleyParser
 				}
 				else
 				{
-					completer(curState);
+					if (! curState.getRule().isUnary()) completer(curState);
 				}
 				
 			}

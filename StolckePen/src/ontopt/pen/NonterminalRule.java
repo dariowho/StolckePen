@@ -89,6 +89,10 @@ public class NonterminalRule extends Rule
     	return this.body.size();
     }
     
+    public boolean isUnary() {
+    	return (this.size() == 1) ? true : false;
+    }
+    
     /**
      * gets the string representation of this rule.
      * 

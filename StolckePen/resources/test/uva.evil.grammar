@@ -1,5 +1,6 @@
 0.5 # TOP ::= TOP <&> A
 0.3 # TOP ::= TOP <&> B
-0.2 # TOP ::= A
+0.1 # TOP ::= A
+0.1 # TOP ::= TOP
 1. # A ::= x
 1. # B ::= y
